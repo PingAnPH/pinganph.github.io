@@ -1,0 +1,274 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>【论文分享】第6期：“OPT: Omni-Perception Pre-Trainer for Cross-Modal Understanding and Generation” | 平安普惠创新管理部</title>
+<link rel="shortcut icon" href="https://pinganph.github.io/favicon.ico?v=1654160904549">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://pinganph.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="【论文分享】第6期：“OPT: Omni-Perception Pre-Trainer for Cross-Modal Understanding and Generation” | 平安普惠创新管理部 - Atom Feed" href="https://pinganph.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="
+
+table {
+    margin: auto;
+}
+
+
+
+
+日期
+主讲人
+论文题目
+
+
+
+
+2022.01.11
+张稳
+OPT: Omni-Perception Pre-Trainer for Cross-Modal Underst..." />
+    <meta name="keywords" content="Paper Shared,SPEECH,CV,NLP" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://pinganph.github.io">
+  <img class="avatar" src="https://pinganph.github.io/images/avatar.png?v=1654160904549" alt="">
+  </a>
+  <h1 class="site-title">
+    平安普惠创新管理部
+  </h1>
+  <p class="site-description">
+    本站主要用于发布平安普惠创新管理部的分享博客
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          文章
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              【论文分享】第6期：“OPT: Omni-Perception Pre-Trainer for Cross-Modal Understanding and Generation”
+            </h2>
+            <div class="post-info">
+              <span>
+                2022-01-17
+              </span>
+              <span>
+                2 min read
+              </span>
+              
+                <a href="https://pinganph.github.io/SNdINpDC0/" class="post-tag">
+                  # Paper Shared
+                </a>
+              
+                <a href="https://pinganph.github.io/imwUzuLcp/" class="post-tag">
+                  # SPEECH
+                </a>
+              
+                <a href="https://pinganph.github.io/tkkKSD6dS/" class="post-tag">
+                  # CV
+                </a>
+              
+                <a href="https://pinganph.github.io/i7D5rAErE/" class="post-tag">
+                  # NLP
+                </a>
+              
+            </div>
+            
+              <img class="post-feature-image" src="https://raw.githubusercontent.com/PingAnPH/Picbed_picgo/main/img/20220117151757.png" alt="">
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <hr>
+<style>
+table {
+    margin: auto;
+}
+</style>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><div style="width: 60pt">日期</div></th>
+<th style="text-align:center"><div style="width:40pt">主讲人</div></th>
+<th style="text-align:center"><div style="width: 460pt">论文题目</div></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">2022.01.11</td>
+<td style="text-align:center">张稳</td>
+<td style="text-align:center"><a href="https://arxiv.org/pdf/2107.00249.pdf">OPT: Omni-Perception Pre-Trainer for Cross-Modal Understanding and Generation</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="1-论文简介"><strong>1、论文简介</strong></h2>
+<p>  在本文中，通过联合建模视觉、文本和音频资源，提出了一种用于跨模式理解和生成的Omni-perception Pre-Trainer模型（OPT）。OPT是在编码器-解码器框架中构建的，包括三个单模态编码器用于为每种模态生成基于token的embedding，一个跨模态编码器，用于对三种模态之间的相关性进行编码，以及两个cross-modal解码器分别生成文本和图像。对于OPT的预训练，设计了一个多任务学习方案，从三个不同的数据粒度对多模态资源进行建模，即token-level、modality-level和sample-level建模，OPT通过它在不同的模态之间学习对齐和翻译。预训练任务是在来自 Open Images 的大量图像-文本-音频三元组上执行的。实验结果表明，OPT 可以学习强大的图像-文本-音频多模态表示，并在各种跨模态理解和生成任务上取得可喜的成果。</p>
+<h2 id="2-qa环节"><strong>2、QA环节</strong></h2>
+<h3 id="q1-音频和文本两个模态的怎么进行多模态预训练"><strong>Q1: 音频和文本两个模态的怎么进行多模态预训练？</strong></h3>
+<p>  文本可以按照BERT的预训练策略，音频部分可以使用l2 loss和对比学习对wav2vec 2.0编码得到的音频特征进行重构。</p>
+<h3 id="q2-怎么提升多模态预训练模型的representation能力"><strong>Q2: 怎么提升多模态预训练模型的representation能力?</strong></h3>
+<p>  预训练任务增加decoder解码器，增加训练目标，提升模型representation能力。</p>
+<h3 id="q3-多模态预训练模型怎么应用于少于预训练模态个数的任务"><strong>Q3: 多模态预训练模型怎么应用于少于预训练模态个数的任务?</strong></h3>
+<p>  通过modality-level，将其中一部分模态进行MASK即可以实现。</p>
+<h2 id="附论文分享ppt"><strong>附：论文分享PPT</strong></h2>
+<figure data-type="image" tabindex="1"><img src="https://raw.githubusercontent.com/PingAnPH/Picbed_picgo/main/img/%E5%A4%9A%E6%A8%A1%E6%80%81Pre-Train%EF%BC%88%E6%97%A0%E6%B0%B4%E5%8D%B0%EF%BC%89.jpg" alt="" loading="lazy"></figure>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#1-%E8%AE%BA%E6%96%87%E7%AE%80%E4%BB%8B"><strong>1、论文简介</strong></a></li>
+<li><a href="#2-qa%E7%8E%AF%E8%8A%82"><strong>2、QA环节</strong></a>
+<ul>
+<li><a href="#q1-%E9%9F%B3%E9%A2%91%E5%92%8C%E6%96%87%E6%9C%AC%E4%B8%A4%E4%B8%AA%E6%A8%A1%E6%80%81%E7%9A%84%E6%80%8E%E4%B9%88%E8%BF%9B%E8%A1%8C%E5%A4%9A%E6%A8%A1%E6%80%81%E9%A2%84%E8%AE%AD%E7%BB%83"><strong>Q1: 音频和文本两个模态的怎么进行多模态预训练？</strong></a></li>
+<li><a href="#q2-%E6%80%8E%E4%B9%88%E6%8F%90%E5%8D%87%E5%A4%9A%E6%A8%A1%E6%80%81%E9%A2%84%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B%E7%9A%84representation%E8%83%BD%E5%8A%9B"><strong>Q2: 怎么提升多模态预训练模型的representation能力?</strong></a></li>
+<li><a href="#q3-%E5%A4%9A%E6%A8%A1%E6%80%81%E9%A2%84%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B%E6%80%8E%E4%B9%88%E5%BA%94%E7%94%A8%E4%BA%8E%E5%B0%91%E4%BA%8E%E9%A2%84%E8%AE%AD%E7%BB%83%E6%A8%A1%E6%80%81%E4%B8%AA%E6%95%B0%E7%9A%84%E4%BB%BB%E5%8A%A1"><strong>Q3: 多模态预训练模型怎么应用于少于预训练模态个数的任务?</strong></a></li>
+</ul>
+</li>
+<li><a href="#%E9%99%84%E8%AE%BA%E6%96%87%E5%88%86%E4%BA%ABppt"><strong>附：论文分享PPT</strong></a></li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://pinganph.github.io/dgbnqA04r/">
+              <h3 class="post-title">
+                【技术分享】第2期--语音：Speech Synthesis
+              </h3>
+            </a>
+          </div>
+        
+
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: '4fe97f4e5b8a6fdb5ea1',
+    clientSecret: '830eadccb7e98c7ac4dafa013348b26cb3405e11',
+    repo: 'pinganph.github.io',
+    owner: 'PingAnPH',
+    admin: ['PingAnPH'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+          
+
+          
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://pinganph.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

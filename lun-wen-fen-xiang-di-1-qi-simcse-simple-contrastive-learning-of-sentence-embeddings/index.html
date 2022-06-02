@@ -1,0 +1,283 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>【论文分享】第1期：“SimCSE: Simple Contrastive Learning of Sentence Embeddings” | 平安普惠创新管理部</title>
+<link rel="shortcut icon" href="https://pinganph.github.io/favicon.ico?v=1654160904549">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://pinganph.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="【论文分享】第1期：“SimCSE: Simple Contrastive Learning of Sentence Embeddings” | 平安普惠创新管理部 - Atom Feed" href="https://pinganph.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="
+
+table {
+    margin: auto;
+}
+
+
+
+
+日期
+主讲人
+论文题目
+
+
+
+
+2021.09.26
+南海顺
+SimCSE: Simple Contrastive Learning of Sentence Embeddi..." />
+    <meta name="keywords" content="Paper Shared,NLP" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://pinganph.github.io">
+  <img class="avatar" src="https://pinganph.github.io/images/avatar.png?v=1654160904549" alt="">
+  </a>
+  <h1 class="site-title">
+    平安普惠创新管理部
+  </h1>
+  <p class="site-description">
+    本站主要用于发布平安普惠创新管理部的分享博客
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          文章
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              【论文分享】第1期：“SimCSE: Simple Contrastive Learning of Sentence Embeddings”
+            </h2>
+            <div class="post-info">
+              <span>
+                2021-10-09
+              </span>
+              <span>
+                8 min read
+              </span>
+              
+                <a href="https://pinganph.github.io/SNdINpDC0/" class="post-tag">
+                  # Paper Shared
+                </a>
+              
+                <a href="https://pinganph.github.io/i7D5rAErE/" class="post-tag">
+                  # NLP
+                </a>
+              
+            </div>
+            
+              <img class="post-feature-image" src="https://raw.githubusercontent.com/PingAnPH/Picbed_picgo/main/img/paper1封面.png" alt="">
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <hr>
+<style>
+table {
+    margin: auto;
+}
+</style>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><div style="width: 60pt">日期</div></th>
+<th style="text-align:center"><div style="width:40pt">主讲人</div></th>
+<th style="text-align:center"><div style="width: 460pt">论文题目</div></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">2021.09.26</td>
+<td style="text-align:center">南海顺</td>
+<td style="text-align:center"><a href="https://arxiv.org/pdf/2104.08821.pdf">SimCSE: Simple Contrastive Learning of Sentence Embeddings</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="q1-对比学习为什么有效">Q1: 对比学习为什么有效？</h3>
+<p>  文中主要提到了衡量对比学习质量的指标：alignment和uniformity，作者用这两个指标测试了不同模型训练过程中保存的checkpoints，可以发现所有模型的uniformity都有所改进，表明预训练BERT的语义向量分布的奇异性被逐步减弱，而与fix dropout和no dropout相比，SimCSE能在规整分布的同时保持正样本的对齐，与Delete one word相比，虽然alignment比不上delete one word，但由于其分布更加均匀，因此SimCSE总体性能更高。也就是更有效。</p>
+<h3 id="q2-对比学习与度量学习的差别是什么">Q2: 对比学习与度量学习的差别是什么？</h3>
+<p>  对比学习的思想是去拉近相似的样本，推开不相似的样本，而目标是要从样本中学习到一个好的语义表示空间。好的对比学习系统应该具备两个属性：Alignment和Uniformity。</p>
+<p>  所谓“Alignment”，指的是相似的例子，也就是正例，映射到单位超球面后，应该有接近的特征，也即是说，在超球面上距离比较近；所谓“Uniformity”，指的是系统应该倾向在特征里保留尽可能多的信息，这等价于使得映射到单位超球面的特征，尽可能均匀地分布在球面上，分布得越均匀，意味着保留的信息越充分。分布均匀意味着两两有差异，也意味着各自保有独有信息，这代表信息保留充分。</p>
+<p>  度量学习和对比学习的思想是一样的，都是去拉近相似的样本，推开不相似的样本,但是对比学习是无监督或者自监督学习方法，而度量学习一般为有监督学习方法，而且对比学习在loss设计时，为单正例多负例的形式，因为是无监督，数据是充足的，也就可以找到无穷的负例，但如何构造有效正例才是重点。而度量学习多为二元组或三元组的形式，如常见的Triplet形式（anchor，positive，negative），Hard Negative的挖掘对最终效果有较大的影响</p>
+<h3 id="q3-对比学习在选择负样本时会选择一个batch中的所有其他样本为负例如果负例中有很相似的样本怎么办">Q3: 对比学习在选择负样本时会选择一个batch中的所有其他样本为负例，如果负例中有很相似的样本怎么办？</h3>
+<p>  在无监督无标注的情况下，这样的伪负例，其实是不可避免的，首先可以想到的方式是去扩大语料库，去加大batch size，以降低batch训练中采样到伪负例的概率，减少它的影响。另外，神经网络是有一定容错能力的，像伪标签方法就是一个很好的印证，但前提是错误标签数据或伪负例占较小的比例。</p>
+<h3 id="q4-simces中的dropout-mask-指的是什么dropout-rate的大小影响是什么">Q4: simces中的dropout mask 指的是什么，dropout rate的大小影响是什么？</h3>
+<p>  一般而言的mask是对token级别的mask，比如说BERT MLM中的mask，batch训练时对padding位的mask等。SimCSE中的dropout mask，对于BERT模型本身，是一种网络模型的随机，是对网络参数W的mask，起到防止过拟合的作用。而SimCSE巧妙的把它作为了一种noise，起到数据增强的作用，因为同一句话，经过带dropout的模型两次，得到的句向量是不一样的，但是因为是相同的句子输入，最后句向量的语义期望是相同的，因此作为正例对，让模型去拉近它们之间的距离。在实现上，因为一个batch中的任意两个样本，经历的dropout mask都是不一样的，因此，一个句子过两次dropout，SimCSE源码中实际上是在一个batch中实现的，即[a,a,b,b...]作为一个batch去输入dropout rate大小的影响，可以理解为，这个概率会对应有dropout的句向量相对无dropout句向量，在整个单位超球体中偏移的程度，因为BERT是多层的结构，每一层都会有dropout，这些noise的累积，会让句向量在每个维度上都会有偏移的，只是p较小的情况下，两个向量在空间中仍较为接近，如论文所说，“keeps a steady alignment”，保证了一个稳定的对齐性。</p>
+<h3 id="q5-论文中提到nlp领域embedding有明显的anisotropic问题-simces能缓解这一问题并给出了相应证明-证明中提到成立的前提条件是需要负样本对的数量足够多large-batch-size那么想请问一下实际操作中一般使用多大batch-size然后这个问题对模型效果的影响会不会很大还是说在实际任务中不一定体现出来">Q5: 论文中提到NLP领域embedding有明显的anisotropic问题。simces能缓解这一问题并给出了相应证明。证明中提到成立的前提条件是需要负样本对的数量足够多（large batch size），那么想请问一下实际操作中一般使用多大batch size，然后这个问题对模型效果的影响会不会很大？还是说在实际任务中不一定体现出来。</h3>
+<p>  原论文中batch size=512，苏神在复现时使用的时batch size= 64。理论上时越大越好，但实际使用可能要根据具体数据情况选择。</p>
+<h3 id="q6-论文中的几个loss的设计和理解alignment-和uniformity两个指标定义的理解">Q6: 论文中的几个loss的设计和理解，alignment 和uniformity两个指标定义的理解</h3>
+<p>  loss的设计和思想就是拉近相似的样本，推开不相似的样本。从loss的构造上可以看出，当相似相比距离越小，不相似样本距离越大时，loss越小。</p>
+<p>  对于alignment和uniformity的定义可以根据下图直观理解：</p>
+<figure data-type="image" tabindex="1"><img src="https://raw.githubusercontent.com/PingAnPH/Picbed_picgo/main/20211008171749.png" alt="" loading="lazy"></figure>
+<p>  alignment计算正例对之间的向量距离的期望：越相似的样例之间的alignment程度越高。因为alignment使用距离来衡量，所以距离越小，表示alignment的程度越高。</p>
+<p>  uniformity评估所有数据的向量均匀分布的程度，越均匀，保留的信息越多。可以想象任意从表示空间中采样两个数据和, 希望他们的距离比较远。他们的距离越远，证明空间分布越uniform。所以uniformity的值也是越低越好。</p>
+<h3 id="q7-simces构建正负样本对的时候正样本的长度都是相同的负样本大概率是不同的那么模型是不是会倾向于对于长度相同的文本预测为正的">Q7: simces构建正负样本对的时候，正样本的长度都是相同的，负样本大概率是不同的，那么模型是不是会倾向于对于长度相同的文本预测为正的</h3>
+<p>  会有影响，具体可以参考下面这篇论文<br>
+<a href="https://arxiv.org/pdf/2109.04380.pdf">ESimCSE: Enhanced Sample Building Method for Contrastive Learning<br>
+of Unsupervised Sentence Embedding</a></p>
+<h3 id="q8-simcse的思想能否用在我们目前项目中的任务里">Q8: simcse的思想能否用在我们目前项目中的任务里？</h3>
+<ol>
+<li>无监督聚类</li>
+<li>检索式对话</li>
+<li>容错ASR模型</li>
+</ol>
+<h3 id="q9-对比学习的infonce-loss-中的温度常数t的作用是什么">Q9: 对比学习的infoNCE loss 中的温度常数t的作用是什么？</h3>
+<p>  温度系数的作用是调节对困难样本的关注程度：越小的温度系数越关注于将本样本和最相似的困难样本分开，去得到更均匀的表示。然而困难样本往往是与本样本相似程度较高的，很多困难负样本其实是潜在的正样本，过分强迫与困难样本分开会破坏学到的潜在语义结构，因此，温度系数不能过小。考虑两个极端情况，温度系数趋向于0时，对比损失退化为只关注最困难的负样本的损失函数；当温度系数趋向于无穷大时，对比损失对所有负样本都一视同仁，失去了困难样本关注的特性。</p>
+<p>  还有一个角度：可以把不同的负样本想像成同极点电荷在不同距离处的受力情况，距离越近的点电荷受到的库伦斥力更大，而距离越远的点电荷受到的斥力越小。对比损失中，越近的负例受到的斥力越大，具体的表现就是对应的负梯度值越大。这种性质更有利于形成在超球面均匀分布的特征。对照着公式去理解：</p>
+<figure data-type="image" tabindex="2"><img src="https://raw.githubusercontent.com/PingAnPH/Picbed_picgo/main/image-20211008131850573.png" alt="" loading="lazy"></figure>
+<p>  当温度系数很小时，越相似也即越困难的负例，对应的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>S</mi><mo>(</mo><msub><mi>z</mi><mi>i</mi></msub><mo separator="true">,</mo><msub><mi>z</mi><mi>j</mi></msub><mo>)</mo><mi mathvariant="normal">/</mi><mi>τ</mi></mrow><annotation encoding="application/x-tex">S(z_i,z_j)/\tau</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.036108em;vertical-align:-0.286108em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.04398em;">z</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.04398em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.04398em;">z</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.04398em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mord">/</span><span class="mord mathdefault" style="margin-right:0.1132em;">τ</span></span></span></span>就越大，在分母叠加项中所占的比重就会越大，对整体loss的影响就会越大，具体的表现就是对应的负梯度值越大。</p>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#q1-%E5%AF%B9%E6%AF%94%E5%AD%A6%E4%B9%A0%E4%B8%BA%E4%BB%80%E4%B9%88%E6%9C%89%E6%95%88">Q1: 对比学习为什么有效？</a></li>
+<li><a href="#q2-%E5%AF%B9%E6%AF%94%E5%AD%A6%E4%B9%A0%E4%B8%8E%E5%BA%A6%E9%87%8F%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%B7%AE%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88">Q2: 对比学习与度量学习的差别是什么？</a></li>
+<li><a href="#q3-%E5%AF%B9%E6%AF%94%E5%AD%A6%E4%B9%A0%E5%9C%A8%E9%80%89%E6%8B%A9%E8%B4%9F%E6%A0%B7%E6%9C%AC%E6%97%B6%E4%BC%9A%E9%80%89%E6%8B%A9%E4%B8%80%E4%B8%AAbatch%E4%B8%AD%E7%9A%84%E6%89%80%E6%9C%89%E5%85%B6%E4%BB%96%E6%A0%B7%E6%9C%AC%E4%B8%BA%E8%B4%9F%E4%BE%8B%E5%A6%82%E6%9E%9C%E8%B4%9F%E4%BE%8B%E4%B8%AD%E6%9C%89%E5%BE%88%E7%9B%B8%E4%BC%BC%E7%9A%84%E6%A0%B7%E6%9C%AC%E6%80%8E%E4%B9%88%E5%8A%9E">Q3: 对比学习在选择负样本时会选择一个batch中的所有其他样本为负例，如果负例中有很相似的样本怎么办？</a></li>
+<li><a href="#q4-simces%E4%B8%AD%E7%9A%84dropout-mask-%E6%8C%87%E7%9A%84%E6%98%AF%E4%BB%80%E4%B9%88dropout-rate%E7%9A%84%E5%A4%A7%E5%B0%8F%E5%BD%B1%E5%93%8D%E6%98%AF%E4%BB%80%E4%B9%88">Q4: simces中的dropout mask 指的是什么，dropout rate的大小影响是什么？</a></li>
+<li><a href="#q5-%E8%AE%BA%E6%96%87%E4%B8%AD%E6%8F%90%E5%88%B0nlp%E9%A2%86%E5%9F%9Fembedding%E6%9C%89%E6%98%8E%E6%98%BE%E7%9A%84anisotropic%E9%97%AE%E9%A2%98-simces%E8%83%BD%E7%BC%93%E8%A7%A3%E8%BF%99%E4%B8%80%E9%97%AE%E9%A2%98%E5%B9%B6%E7%BB%99%E5%87%BA%E4%BA%86%E7%9B%B8%E5%BA%94%E8%AF%81%E6%98%8E-%E8%AF%81%E6%98%8E%E4%B8%AD%E6%8F%90%E5%88%B0%E6%88%90%E7%AB%8B%E7%9A%84%E5%89%8D%E6%8F%90%E6%9D%A1%E4%BB%B6%E6%98%AF%E9%9C%80%E8%A6%81%E8%B4%9F%E6%A0%B7%E6%9C%AC%E5%AF%B9%E7%9A%84%E6%95%B0%E9%87%8F%E8%B6%B3%E5%A4%9F%E5%A4%9Alarge-batch-size%E9%82%A3%E4%B9%88%E6%83%B3%E8%AF%B7%E9%97%AE%E4%B8%80%E4%B8%8B%E5%AE%9E%E9%99%85%E6%93%8D%E4%BD%9C%E4%B8%AD%E4%B8%80%E8%88%AC%E4%BD%BF%E7%94%A8%E5%A4%9A%E5%A4%A7batch-size%E7%84%B6%E5%90%8E%E8%BF%99%E4%B8%AA%E9%97%AE%E9%A2%98%E5%AF%B9%E6%A8%A1%E5%9E%8B%E6%95%88%E6%9E%9C%E7%9A%84%E5%BD%B1%E5%93%8D%E4%BC%9A%E4%B8%8D%E4%BC%9A%E5%BE%88%E5%A4%A7%E8%BF%98%E6%98%AF%E8%AF%B4%E5%9C%A8%E5%AE%9E%E9%99%85%E4%BB%BB%E5%8A%A1%E4%B8%AD%E4%B8%8D%E4%B8%80%E5%AE%9A%E4%BD%93%E7%8E%B0%E5%87%BA%E6%9D%A5">Q5: 论文中提到NLP领域embedding有明显的anisotropic问题。simces能缓解这一问题并给出了相应证明。证明中提到成立的前提条件是需要负样本对的数量足够多（large batch size），那么想请问一下实际操作中一般使用多大batch size，然后这个问题对模型效果的影响会不会很大？还是说在实际任务中不一定体现出来。</a></li>
+<li><a href="#q6-%E8%AE%BA%E6%96%87%E4%B8%AD%E7%9A%84%E5%87%A0%E4%B8%AAloss%E7%9A%84%E8%AE%BE%E8%AE%A1%E5%92%8C%E7%90%86%E8%A7%A3alignment-%E5%92%8Cuniformity%E4%B8%A4%E4%B8%AA%E6%8C%87%E6%A0%87%E5%AE%9A%E4%B9%89%E7%9A%84%E7%90%86%E8%A7%A3">Q6: 论文中的几个loss的设计和理解，alignment 和uniformity两个指标定义的理解</a></li>
+<li><a href="#q7-simces%E6%9E%84%E5%BB%BA%E6%AD%A3%E8%B4%9F%E6%A0%B7%E6%9C%AC%E5%AF%B9%E7%9A%84%E6%97%B6%E5%80%99%E6%AD%A3%E6%A0%B7%E6%9C%AC%E7%9A%84%E9%95%BF%E5%BA%A6%E9%83%BD%E6%98%AF%E7%9B%B8%E5%90%8C%E7%9A%84%E8%B4%9F%E6%A0%B7%E6%9C%AC%E5%A4%A7%E6%A6%82%E7%8E%87%E6%98%AF%E4%B8%8D%E5%90%8C%E7%9A%84%E9%82%A3%E4%B9%88%E6%A8%A1%E5%9E%8B%E6%98%AF%E4%B8%8D%E6%98%AF%E4%BC%9A%E5%80%BE%E5%90%91%E4%BA%8E%E5%AF%B9%E4%BA%8E%E9%95%BF%E5%BA%A6%E7%9B%B8%E5%90%8C%E7%9A%84%E6%96%87%E6%9C%AC%E9%A2%84%E6%B5%8B%E4%B8%BA%E6%AD%A3%E7%9A%84">Q7: simces构建正负样本对的时候，正样本的长度都是相同的，负样本大概率是不同的，那么模型是不是会倾向于对于长度相同的文本预测为正的</a></li>
+<li><a href="#q8-simcse%E7%9A%84%E6%80%9D%E6%83%B3%E8%83%BD%E5%90%A6%E7%94%A8%E5%9C%A8%E6%88%91%E4%BB%AC%E7%9B%AE%E5%89%8D%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%9A%84%E4%BB%BB%E5%8A%A1%E9%87%8C">Q8: simcse的思想能否用在我们目前项目中的任务里？</a></li>
+<li><a href="#q9-%E5%AF%B9%E6%AF%94%E5%AD%A6%E4%B9%A0%E7%9A%84infonce-loss-%E4%B8%AD%E7%9A%84%E6%B8%A9%E5%BA%A6%E5%B8%B8%E6%95%B0t%E7%9A%84%E4%BD%9C%E7%94%A8%E6%98%AF%E4%BB%80%E4%B9%88">Q9: 对比学习的infoNCE loss 中的温度常数t的作用是什么？</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: '4fe97f4e5b8a6fdb5ea1',
+    clientSecret: '830eadccb7e98c7ac4dafa013348b26cb3405e11',
+    repo: 'pinganph.github.io',
+    owner: 'PingAnPH',
+    admin: ['PingAnPH'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+          
+
+          
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://pinganph.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

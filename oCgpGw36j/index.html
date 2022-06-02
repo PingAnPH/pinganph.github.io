@@ -1,0 +1,274 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>【论文分享】第4期：“Meta Fine-Tuning Neural Language Models for Multi-Domain Text Mining” | 平安普惠创新管理部</title>
+<link rel="shortcut icon" href="https://pinganph.github.io/favicon.ico?v=1654160904549">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://pinganph.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="【论文分享】第4期：“Meta Fine-Tuning Neural Language Models for Multi-Domain Text Mining” | 平安普惠创新管理部 - Atom Feed" href="https://pinganph.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="
+
+table {
+    margin: auto;
+}
+
+
+
+
+日期
+主讲人
+论文题目
+
+
+
+
+2021.11.23
+李越
+Meta Fine-Tuning Neural Language Models for Multi-Domain..." />
+    <meta name="keywords" content="Paper Shared,NLP" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://pinganph.github.io">
+  <img class="avatar" src="https://pinganph.github.io/images/avatar.png?v=1654160904549" alt="">
+  </a>
+  <h1 class="site-title">
+    平安普惠创新管理部
+  </h1>
+  <p class="site-description">
+    本站主要用于发布平安普惠创新管理部的分享博客
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          文章
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              【论文分享】第4期：“Meta Fine-Tuning Neural Language Models for Multi-Domain Text Mining”
+            </h2>
+            <div class="post-info">
+              <span>
+                2021-12-06
+              </span>
+              <span>
+                3 min read
+              </span>
+              
+                <a href="https://pinganph.github.io/SNdINpDC0/" class="post-tag">
+                  # Paper Shared
+                </a>
+              
+                <a href="https://pinganph.github.io/i7D5rAErE/" class="post-tag">
+                  # NLP
+                </a>
+              
+            </div>
+            
+              <img class="post-feature-image" src="https://raw.githubusercontent.com/PingAnPH/Picbed_picgo/main/img/20211206091356.png" alt="">
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <hr>
+<style>
+table {
+    margin: auto;
+}
+</style>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><div style="width: 60pt">日期</div></th>
+<th style="text-align:center"><div style="width:40pt">主讲人</div></th>
+<th style="text-align:center"><div style="width: 460pt">论文题目</div></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">2021.11.23</td>
+<td style="text-align:center">李越</td>
+<td style="text-align:center"><a href="https://arxiv.org/pdf/2003.13003v1.pdf">Meta Fine-Tuning Neural Language Models for Multi-Domain Text Mining[1]</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="1-abstract"><strong>1. Abstract</strong></h2>
+<p>  This paper the author mainly propose an effective learning procedure named &quot;Meta Fine-Tuning (MFT)&quot;, serving as a meta-learner to solve a group of similar NLP tasks for neural language models. The main inspiration methods of this paper include typicality weighting score and domain corruption training strategy. These two stragegies combine properly with kinds of language models include BERT and Transformers, which improve the training efficiency to a new level and be easy to use in various industries.<br>
+<img src="https://raw.githubusercontent.com/PingAnPH/Picbed_picgo/main/img/20211206091537.png" alt="" loading="lazy"></p>
+<center>Figure 1:Comparison between fine-tuning and MFT[1].</center>
+<h2 id="2-qa"><strong>2. Q&amp;A</strong></h2>
+<h3 id="q1-what-is-meta-learning-in-this-paper-and-how-does-it-work"><strong>Q1: What is Meta Learning in this paper and how does it work?</strong></h3>
+<p>  Meta Learning in this paper is about learning how to fine-tune a model in different task domain. It combines language model with typicality score and domain corruption training strategy.</p>
+<h3 id="q2-what-is-the-typical-training-paradigm-for-mft"><strong>Q2: What is the typical training paradigm for MFT?</strong></h3>
+<p>​  Pre-training，Meta tuning， then fine tuning on different task domain with same initialization.</p>
+<h3 id="q3-why-does-so-called-flipped-domain-labels-can-not-help-model-learn-domain-invariant-representation"><strong>Q3: Why does so-called &quot;flipped domain labels&quot; can not help model learn domain-invariant representation?</strong></h3>
+<p>​  Pre-training，Meta tuning， then fine tuning on different task domain with same initialization.</p>
+<h3 id="q4-do-you-ever-know-some-similar-strategies-like-domain-corruption-strategy-what-is-that"><strong>Q4: Do you ever know some similar strategies like &quot;domain corruption strategy&quot;? What is that?</strong></h3>
+<p>  The EM training strategy is kind of similar to domain corruption strategy in a way that they both apply MLE to maximize the expectation of distribution.</p>
+<h3 id="q5what-kind-of-difficulty-we-could-meet-if-we-apply-mft"><strong>Q5:What kind of difficulty we could meet if we apply MFT?</strong></h3>
+<p>  The typicality score may heavily depend on your real application and thus could be not that efficient. At the same time, MFT need to access all the target domain data, which may not accessible at all time.</p>
+<h3 id="q6-how-to-elaborate-that-the-domain-label-embedding-in-domain-corruption-strategy-could-help-model-learning-domain-invariant-representations"><strong>Q6: How to elaborate that the domain label embedding in domain corruption strategy could help model learning domain-invariant representations?</strong></h3>
+<p>  The author claimed in fact they prove this point in a way that given the knowledge of domain label to model, it could only output the corrupted label. Thus, the model study domain-invaraiant representations by invalidating the domain embedding.</p>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#1-abstract"><strong>1. Abstract</strong></a></li>
+<li><a href="#2-qa"><strong>2. Q&amp;A</strong></a>
+<ul>
+<li><a href="#q1-what-is-meta-learning-in-this-paper-and-how-does-it-work"><strong>Q1: What is Meta Learning in this paper and how does it work?</strong></a></li>
+<li><a href="#q2-what-is-the-typical-training-paradigm-for-mft"><strong>Q2: What is the typical training paradigm for MFT?</strong></a></li>
+<li><a href="#q3-why-does-so-called-flipped-domain-labels-can-not-help-model-learn-domain-invariant-representation"><strong>Q3: Why does so-called &quot;flipped domain labels&quot; can not help model learn domain-invariant representation?</strong></a></li>
+<li><a href="#q4-do-you-ever-know-some-similar-strategies-like-domain-corruption-strategy-what-is-that"><strong>Q4: Do you ever know some similar strategies like &quot;domain corruption strategy&quot;? What is that?</strong></a></li>
+<li><a href="#q5what-kind-of-difficulty-we-could-meet-if-we-apply-mft"><strong>Q5:What kind of difficulty we could meet if we apply MFT?</strong></a></li>
+<li><a href="#q6-how-to-elaborate-that-the-domain-label-embedding-in-domain-corruption-strategy-could-help-model-learning-domain-invariant-representations"><strong>Q6: How to elaborate that the domain label embedding in domain corruption strategy could help model learning domain-invariant representations?</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://pinganph.github.io/1SJ0d8xWf/">
+              <h3 class="post-title">
+                【论文分享】第3期：“RepVGG: Making VGG-style ConvNets Great Again”
+              </h3>
+            </a>
+          </div>
+        
+
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: '4fe97f4e5b8a6fdb5ea1',
+    clientSecret: '830eadccb7e98c7ac4dafa013348b26cb3405e11',
+    repo: 'pinganph.github.io',
+    owner: 'PingAnPH',
+    admin: ['PingAnPH'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+          
+
+          
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://pinganph.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

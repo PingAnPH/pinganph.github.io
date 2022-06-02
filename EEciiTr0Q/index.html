@@ -1,0 +1,264 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>【论文分享】第8期：“BasicVSR: The Search for Essential Components in Video Super-Resolution and Beyond” | 平安普惠创新管理部</title>
+<link rel="shortcut icon" href="https://pinganph.github.io/favicon.ico?v=1654160904549">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://pinganph.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="【论文分享】第8期：“BasicVSR: The Search for Essential Components in Video Super-Resolution and Beyond” | 平安普惠创新管理部 - Atom Feed" href="https://pinganph.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="
+
+table {
+    margin: auto;
+}
+
+
+
+
+日期
+主讲人
+论文题目
+
+
+
+
+2022.05.16
+陈昊
+BasicVSR: The Search for Essential Components in Video S..." />
+    <meta name="keywords" content="Paper Shared,CV" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://pinganph.github.io">
+  <img class="avatar" src="https://pinganph.github.io/images/avatar.png?v=1654160904549" alt="">
+  </a>
+  <h1 class="site-title">
+    平安普惠创新管理部
+  </h1>
+  <p class="site-description">
+    本站主要用于发布平安普惠创新管理部的分享博客
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          文章
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              【论文分享】第8期：“BasicVSR: The Search for Essential Components in Video Super-Resolution and Beyond”
+            </h2>
+            <div class="post-info">
+              <span>
+                2022-05-27
+              </span>
+              <span>
+                2 min read
+              </span>
+              
+                <a href="https://pinganph.github.io/SNdINpDC0/" class="post-tag">
+                  # Paper Shared
+                </a>
+              
+                <a href="https://pinganph.github.io/tkkKSD6dS/" class="post-tag">
+                  # CV
+                </a>
+              
+            </div>
+            
+              <img class="post-feature-image" src="https://raw.githubusercontent.com/PingAnPH/Picbed_picgo/main/img/论文封面.png" alt="">
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <hr>
+<style>
+table {
+    margin: auto;
+}
+</style>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><div style="width: 60pt">日期</div></th>
+<th style="text-align:center"><div style="width:40pt">主讲人</div></th>
+<th style="text-align:center"><div style="width: 460pt">论文题目</div></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">2022.05.16</td>
+<td style="text-align:center">陈昊</td>
+<td style="text-align:center"><a href="https://arxiv.org/pdf/2012.02181.pdf">BasicVSR: The Search for Essential Components in Video Super-Resolution and Beyond</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="讨论议题"><strong>讨论议题</strong></h2>
+<p>  如何找到改进算法的思路，用于解决问题/发表文章?</p>
+<h3 id="1-背景讨论"><strong>1. 背景讨论</strong></h3>
+<p>  总结前提，总结范式。首先明确论文中涉及的相关定义。图片超分辨是基于单个图片的超分辨，视频超分辨不只是基于单个图片，还需要利用相邻帧图片的信息。之后提出本论文中要解决的问题是有关于于视频超分辨技术的改进。</p>
+<h3 id="2-过程讨论"><strong>2. 过程讨论</strong></h3>
+<p>  提出假设，论证假设，找到改进实破口，首先要总结目前视频超分辨所采用的方法，之后在讨论过程中，列出目前所采用的相关技术方法，并将这些方法进行对比，进而找到突破口。</p>
+<h3 id="3-基于假设针对问题提出改进思路"><strong>3. 基于假设，针对问题，提出改进思路</strong></h3>
+<p>  基于找到的问题，可以进一步提出改进思路。</p>
+<h3 id="4-发现新的问题在进行修正"><strong>4. 发现新的问题，在进行修正</strong></h3>
+<p>  例加对齐过程中，发现聚合的方式合导致误差逐渐放大，因此采用信息同填的方式修正问题。</p>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E8%AE%A8%E8%AE%BA%E8%AE%AE%E9%A2%98"><strong>讨论议题</strong></a>
+<ul>
+<li><a href="#1-%E8%83%8C%E6%99%AF%E8%AE%A8%E8%AE%BA"><strong>1. 背景讨论</strong></a></li>
+<li><a href="#2-%E8%BF%87%E7%A8%8B%E8%AE%A8%E8%AE%BA"><strong>2. 过程讨论</strong></a></li>
+<li><a href="#3-%E5%9F%BA%E4%BA%8E%E5%81%87%E8%AE%BE%E9%92%88%E5%AF%B9%E9%97%AE%E9%A2%98%E6%8F%90%E5%87%BA%E6%94%B9%E8%BF%9B%E6%80%9D%E8%B7%AF"><strong>3. 基于假设，针对问题，提出改进思路</strong></a></li>
+<li><a href="#4-%E5%8F%91%E7%8E%B0%E6%96%B0%E7%9A%84%E9%97%AE%E9%A2%98%E5%9C%A8%E8%BF%9B%E8%A1%8C%E4%BF%AE%E6%AD%A3"><strong>4. 发现新的问题，在进行修正</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://pinganph.github.io/3fdukfY_P/">
+              <h3 class="post-title">
+                【论文分享】第7期：“A Label Dependence-aware Sequence Generation Model for Multi-level Implicit Discourse Relation Recognition”
+              </h3>
+            </a>
+          </div>
+        
+
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: '4fe97f4e5b8a6fdb5ea1',
+    clientSecret: '830eadccb7e98c7ac4dafa013348b26cb3405e11',
+    repo: 'pinganph.github.io',
+    owner: 'PingAnPH',
+    admin: ['PingAnPH'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+          
+
+          
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://pinganph.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,737 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://pinganph.github.io</id>
+    <title>平安普惠创新管理部</title>
+    <updated>2022-06-02T09:09:24.949Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://pinganph.github.io"/>
+    <link rel="self" href="https://pinganph.github.io/atom.xml"/>
+    <subtitle>本站主要用于发布平安普惠创新管理部的分享博客</subtitle>
+    <logo>https://pinganph.github.io/images/avatar.png</logo>
+    <icon>https://pinganph.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2022, 平安普惠创新管理部</rights>
+    <entry>
+        <title type="html"><![CDATA[【技术分享】第3期：“人脸视觉技术”]]></title>
+        <id>https://pinganph.github.io/MjIOgVbUK/</id>
+        <link href="https://pinganph.github.io/MjIOgVbUK/">
+        </link>
+        <updated>2022-06-02T08:54:19.000Z</updated>
+        <content type="html"><![CDATA[<hr>
+<style>
+table {
+    margin: auto;
+}
+</style>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><div style="width: 60pt">日期</div></th>
+<th style="text-align:center"><div style="width:40pt">主讲人</div></th>
+<th style="text-align:center"><div style="width: 460pt">论文题目</div></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">2022.06.01</td>
+<td style="text-align:center">曾梦萍</td>
+<td style="text-align:center">人脸视觉技术</td>
+</tr>
+</tbody>
+</table>
+<h2 id="1-分享内容简介"><strong>1、分享内容简介</strong></h2>
+<p>  主要介绍了人脸视觉技术中的关键点检测技术、五官分割技术、小目标检测、衰老预测以及3D人脸重建在项目中的实现细节及优化方法。</p>
+<h2 id="2-qa环节"><strong>2、QA环节</strong></h2>
+<h3 id="q1-在3d人脸重建的传统技术路线中第一步是要确定2d关键点与3d关键点对应关系这种对应关系是如何确定是不是3d关键点越多最后重建效果越真实越好"><strong>Q1: 在3D人脸重建的传统技术路线中，第一步是要确定2D关键点与3D关键点对应关系，这种对应关系是如何确定？是不是3D关键点越多，最后重建效果越真实，越好？</strong></h3>
+<p>  首先2D与3D关键点对应关系是一一对应，因此，而2D关键点数量在确定的情况是无法增加3D关键点。关键对应是由美工人员标注的。美工人员对2D照片和3D扫描后照片标记对齐。</p>
+<h3 id="q2-3dmm模型中指的是什么"><strong>Q2: 3DMM模型中指的是什么？</strong></h3>
+<p>  三维人脸模型，是指的用固定的点数来表示人脸。它的核心思想就是人脸可以在三维空间中进行一一匹配，并且可以由其他许多幅人脸正交基加权线性相加而来。我们所处的三维空间，每一点(x,y,z)，实际上都是由三维空间三个方向的基量，(1,0,0)，(0,1,0)，(0,0,1)加权相加所得，只是权重分别为x,y,z。转换到三维空间，道理也一样。每一个三维的人脸，可以由一个数据库中的所有人脸组成的基向量空间中进行表示，而求解任意三维人脸的模型，实际上等价于求解各个基向量的系数的问题。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[【论文分享】第8期：“BasicVSR: The Search for Essential Components in Video Super-Resolution and Beyond”]]></title>
+        <id>https://pinganph.github.io/EEciiTr0Q/</id>
+        <link href="https://pinganph.github.io/EEciiTr0Q/">
+        </link>
+        <updated>2022-05-27T09:05:32.000Z</updated>
+        <content type="html"><![CDATA[<hr>
+<style>
+table {
+    margin: auto;
+}
+</style>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><div style="width: 60pt">日期</div></th>
+<th style="text-align:center"><div style="width:40pt">主讲人</div></th>
+<th style="text-align:center"><div style="width: 460pt">论文题目</div></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">2022.05.16</td>
+<td style="text-align:center">陈昊</td>
+<td style="text-align:center"><a href="https://arxiv.org/pdf/2012.02181.pdf">BasicVSR: The Search for Essential Components in Video Super-Resolution and Beyond</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="讨论议题"><strong>讨论议题</strong></h2>
+<p>  如何找到改进算法的思路，用于解决问题/发表文章?</p>
+<h3 id="1-背景讨论"><strong>1. 背景讨论</strong></h3>
+<p>  总结前提，总结范式。首先明确论文中涉及的相关定义。图片超分辨是基于单个图片的超分辨，视频超分辨不只是基于单个图片，还需要利用相邻帧图片的信息。之后提出本论文中要解决的问题是有关于于视频超分辨技术的改进。</p>
+<h3 id="2-过程讨论"><strong>2. 过程讨论</strong></h3>
+<p>  提出假设，论证假设，找到改进实破口，首先要总结目前视频超分辨所采用的方法，之后在讨论过程中，列出目前所采用的相关技术方法，并将这些方法进行对比，进而找到突破口。</p>
+<h3 id="3-基于假设针对问题提出改进思路"><strong>3. 基于假设，针对问题，提出改进思路</strong></h3>
+<p>  基于找到的问题，可以进一步提出改进思路。</p>
+<h3 id="4-发现新的问题在进行修正"><strong>4. 发现新的问题，在进行修正</strong></h3>
+<p>  例加对齐过程中，发现聚合的方式合导致误差逐渐放大，因此采用信息同填的方式修正问题。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[【论文分享】第7期：“A Label Dependence-aware Sequence Generation Model for Multi-level Implicit Discourse Relation Recognition”]]></title>
+        <id>https://pinganph.github.io/3fdukfY_P/</id>
+        <link href="https://pinganph.github.io/3fdukfY_P/">
+        </link>
+        <updated>2022-04-29T05:44:36.000Z</updated>
+        <content type="html"><![CDATA[<hr>
+<style>
+table {
+    margin: auto;
+}
+</style>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><div style="width: 60pt">日期</div></th>
+<th style="text-align:center"><div style="width:40pt">主讲人</div></th>
+<th style="text-align:center"><div style="width: 460pt">论文题目</div></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">2022.04.28</td>
+<td style="text-align:center">胡超文</td>
+<td style="text-align:center"><a href="https://arxiv.org/pdf/2112.11740.pdf">A Label Dependence-aware Sequence Generation Model for Multi-level Implicit Discourse Relation Recognition</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="1-论文简介"><strong>1、论文简介</strong></h2>
+<p>  本篇论文提出了一种标签依赖性的序列生成模型用于多级隐式篇章关系识别任务。之前大多数方法都是对每级任务去单独的训练一个模型来识别，本文利用多级标签之间的依赖性只需训练一个模型就可以生成多级篇章关系。论文主要包含三个部分：label attentive Encoder，label sequence Decoder 和 Auxiliary Decoder三部分。label attentive Encoder利用gcn学到的label向量和句子向量建模每个词的注意力权重；label sequence Decoder通过GRU网络生成每一级的篇章关系，前一级的篇章关系会参与下一级篇章关系的生成，生成顺序从第一级到连接词；Auxiliary Decoder则从连接词到第一级的方向进行篇章关系的生成，通过互学习的方式联立label sequence Decoder。需要注意的是Auxiliary Decoder只在训练阶段有，推理阶段就不需要了。截止目前，该模型实现了多级隐式篇章关系识别任务的最好效果。</p>
+<h2 id="2-qa环节"><strong>2、QA环节</strong></h2>
+<h3 id="q1-什么是多级隐式篇章关系识别任务"><strong>Q1: 什么是多级隐式篇章关系识别任务？</strong></h3>
+<p><img src="https://raw.githubusercontent.com/PingAnPH/Picbed_picgo/main/img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20220429135311.jpg" alt="" loading="lazy"><br>
+  如图所示，arg1和arg2缺乏显式的连接词“因为”，隐式篇章关系识别任务则是基于arg1和arg2识别出上述四级篇章关系。</p>
+<h3 id="q2-如何理解标签之间的依赖性"><strong>Q2: 如何理解标签之间的依赖性?</strong></h3>
+<p>  这个依赖性在于该任务的label前面一级的篇章关系是上一级篇章关系的进一步细化，具有层次性。</p>
+<h3 id="q3分类任务转成序列生成任务有啥好处"><strong>Q3:分类任务转成序列生成任务有啥好处?</strong></h3>
+<p>  基于多级隐式篇章关系识别任务的特性，这种生成方式具有天然性的优势，比较契合多级标签生成。</p>
+<h3 id="q4模型中的gcn网络的作用"><strong>Q4:模型中的gcn网络的作用?</strong></h3>
+<p>  gcn网络在于利用label之间的层次关系，来学习更好的label向量。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[【论文分享】第6期：“OPT: Omni-Perception Pre-Trainer for Cross-Modal Understanding and Generation”]]></title>
+        <id>https://pinganph.github.io/0Qj6L79jh/</id>
+        <link href="https://pinganph.github.io/0Qj6L79jh/">
+        </link>
+        <updated>2022-01-17T06:53:24.000Z</updated>
+        <content type="html"><![CDATA[<hr>
+<style>
+table {
+    margin: auto;
+}
+</style>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><div style="width: 60pt">日期</div></th>
+<th style="text-align:center"><div style="width:40pt">主讲人</div></th>
+<th style="text-align:center"><div style="width: 460pt">论文题目</div></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">2022.01.11</td>
+<td style="text-align:center">张稳</td>
+<td style="text-align:center"><a href="https://arxiv.org/pdf/2107.00249.pdf">OPT: Omni-Perception Pre-Trainer for Cross-Modal Understanding and Generation</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="1-论文简介"><strong>1、论文简介</strong></h2>
+<p>  在本文中，通过联合建模视觉、文本和音频资源，提出了一种用于跨模式理解和生成的Omni-perception Pre-Trainer模型（OPT）。OPT是在编码器-解码器框架中构建的，包括三个单模态编码器用于为每种模态生成基于token的embedding，一个跨模态编码器，用于对三种模态之间的相关性进行编码，以及两个cross-modal解码器分别生成文本和图像。对于OPT的预训练，设计了一个多任务学习方案，从三个不同的数据粒度对多模态资源进行建模，即token-level、modality-level和sample-level建模，OPT通过它在不同的模态之间学习对齐和翻译。预训练任务是在来自 Open Images 的大量图像-文本-音频三元组上执行的。实验结果表明，OPT 可以学习强大的图像-文本-音频多模态表示，并在各种跨模态理解和生成任务上取得可喜的成果。</p>
+<h2 id="2-qa环节"><strong>2、QA环节</strong></h2>
+<h3 id="q1-音频和文本两个模态的怎么进行多模态预训练"><strong>Q1: 音频和文本两个模态的怎么进行多模态预训练？</strong></h3>
+<p>  文本可以按照BERT的预训练策略，音频部分可以使用l2 loss和对比学习对wav2vec 2.0编码得到的音频特征进行重构。</p>
+<h3 id="q2-怎么提升多模态预训练模型的representation能力"><strong>Q2: 怎么提升多模态预训练模型的representation能力?</strong></h3>
+<p>  预训练任务增加decoder解码器，增加训练目标，提升模型representation能力。</p>
+<h3 id="q3-多模态预训练模型怎么应用于少于预训练模态个数的任务"><strong>Q3: 多模态预训练模型怎么应用于少于预训练模态个数的任务?</strong></h3>
+<p>  通过modality-level，将其中一部分模态进行MASK即可以实现。</p>
+<h2 id="附论文分享ppt"><strong>附：论文分享PPT</strong></h2>
+<figure data-type="image" tabindex="1"><img src="https://raw.githubusercontent.com/PingAnPH/Picbed_picgo/main/img/%E5%A4%9A%E6%A8%A1%E6%80%81Pre-Train%EF%BC%88%E6%97%A0%E6%B0%B4%E5%8D%B0%EF%BC%89.jpg" alt="" loading="lazy"></figure>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[【技术分享】第2期--语音：Speech Synthesis]]></title>
+        <id>https://pinganph.github.io/dgbnqA04r/</id>
+        <link href="https://pinganph.github.io/dgbnqA04r/">
+        </link>
+        <updated>2021-12-27T02:34:34.000Z</updated>
+        <content type="html"><![CDATA[<style>
+table {
+    margin: auto;
+}
+</style>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><div style="width:100pt">日期</div></th>
+<th style="text-align:center"><div style="width:130pt">技术预研方向</div></th>
+<th style="text-align:center"><div style="width:100pt">主讲人</div></th>
+<th style="text-align:center"><div style="width:220pt">主题</div></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">2021.12.24</td>
+<td style="text-align:center">语音</td>
+<td style="text-align:center">柳贤伟</td>
+<td style="text-align:center">Speech Synthesis</td>
+</tr>
+</tbody>
+</table>
+<p><strong>参考文献</strong>：</p>
+<ol>
+<li>
+<p><a href="https://arxiv.org/pdf/2008.03648.pdf">Sisman B, Yamagishi J, King S, et al. An overview of voice conversion and its challenges: From statistical modeling to deep learning[J]. IEEE/ACM Transactions on Audio, Speech, and Language Processing, 2020.</a></p>
+</li>
+<li>
+<p><a href="https://arxiv.org/pdf/2009.02725.pdf">Liu S, Cao Y, Wang D, et al. Any-to-Many Voice Conversion With Location-Relative Sequence-to-Sequence Modeling[J]. IEEE/ACM Transactions on Audio, Speech, and Language Processing, 2021, 29: 1717-1728.</a></p>
+</li>
+<li>
+<p><a href="https://arxiv.org/pdf/1703.10135.pdf">Wang Y, Skerry-Ryan R J, Stanton D, et al. Tacotron: Towards end-to-end speech synthesis[J]. arXiv preprint arXiv:1703.10135, 2017.</a></p>
+</li>
+<li>
+<p><a href="https://arxiv.org/pdf/1712.05884.pdf">Shen J, Pang R, Weiss R J, et al. Natural tts synthesis by conditioning wavenet on mel spectrogram predictions[C]//2018 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP). IEEE, 2018: 4779-4783. --Tacotron2</a></p>
+</li>
+<li>
+<p><a href="https://arxiv.org/pdf/1609.03499.pdf">Oord A, Dieleman S, Zen H, et al. Wavenet: A generative model for raw audio[J]. arXiv preprint arXiv:1609.03499, 2016.</a></p>
+</li>
+<li>
+<p><a href="https://arxiv.org/pdf/1905.09263.pdf">Ren Y, Ruan Y, Tan X, et al. Fastspeech: Fast, robust and controllable text to speech[J]. arXiv preprint arXiv:1905.09263, 2019.</a></p>
+</li>
+<li>
+<p><a href="https://arxiv.org/pdf/2006.04558.pdf">Ren Y, Hu C, Tan X, et al. Fastspeech 2: Fast and high-quality end-to-end text to speech[J]. arXiv preprint arXiv:2006.04558, 2020.</a></p>
+</li>
+<li>
+<p><a href="https://www.bilibili.com/video/BV1RE411g7rQ?p=15">B站台大李宏毅人类语言处理课程</a></p>
+</li>
+<li>
+<p><a href="https://arxiv.org/pdf/1806.04558.pdf">Jia Y, Zhang Y, Weiss R J, et al. Transfer learning from speaker verification to multispeaker text-to-speech synthesis[J]. arXiv preprint arXiv:1806.04558, 2018.</a></p>
+</li>
+<li>
+<p><a href="https://arxiv.org/pdf/2011.08609.pdf">Wang Z, Ge W, Wang X, et al. Accent and Speaker Disentanglement in Many-to-many Voice Conversion[C]//2021 12th International Symposium on Chinese Spoken Language Processing (ISCSLP). IEEE, 2021: 1-5.</a></p>
+</li>
+</ol>
+<figure data-type="image" tabindex="1"><img src="https://raw.githubusercontent.com/PingAnPH/Picbed_picgo/main/img/speech-synthesis.jpg" alt="" loading="lazy"></figure>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[【论文分享】第5期：“Single Headed Attention RNN: Stop ThinkingWith Your Head”]]></title>
+        <id>https://pinganph.github.io/HD31j56cN/</id>
+        <link href="https://pinganph.github.io/HD31j56cN/">
+        </link>
+        <updated>2021-12-15T01:07:33.000Z</updated>
+        <content type="html"><![CDATA[<hr>
+<style>
+table {
+    margin: auto;
+}
+</style>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><div style="width: 60pt">日期</div></th>
+<th style="text-align:center"><div style="width:40pt">主讲人</div></th>
+<th style="text-align:center"><div style="width: 460pt">论文题目</div></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">2021.12.13</td>
+<td style="text-align:center">苏煜竣</td>
+<td style="text-align:center"><a href="https://arxiv.org/pdf/1911.11423.pdf">Single Headed Attention RNN: Stop ThinkingWith Your Head</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="1-论文简介"><strong>1、论文简介</strong></h2>
+<h3 id="模型介绍"><strong>模型介绍：</strong></h3>
+<p>  想象一下没有transformer的世界，如果没有了transformer,nlp的发展是否会停滞不前呢？抑或是开启了全新的科技树走上了另外一条大相径庭的发展路径呢?本文的作者尝试给出了自己的答案。</p>
+<h3 id="模型结构对比"><strong>模型结构对比：</strong></h3>
+<p>  本质上，一个block是一个layer，带attention的是两个layer。<br>
+<img src="https://raw.githubusercontent.com/PingAnPH/Picbed_picgo/main/img/sharnn-p5.png" alt="" loading="lazy"></p>
+<center>图1.1 SHARNN网络结构</center>
+<h3 id="模型效果"><strong>模型效果：</strong></h3>
+<ol>
+<li>单机单卡即可完成训练.</li>
+<li>比transformer更快的训练、推理速度.</li>
+</ol>
+<h3 id="模型有什么值得我们尝试的吗"><strong>模型有什么值得我们尝试的吗：</strong></h3>
+<ol>
+<li>BoomLayer可以尝试代替FC层.</li>
+<li>Attetion中的Vs参数静态化可以值得尝试.</li>
+<li>把大模型蒸馏到这个模型当中,加速推理速度.</li>
+</ol>
+<h2 id="2-qa环节"><strong>2、QA环节</strong></h2>
+<h3 id="q1-sharnn与transormer的区别"><strong>Q1: SHARNN与Transormer的区别?</strong></h3>
+<ol>
+<li>使用了RNN结构一定程度替代了位置编码,同时rnn也承担了一部分的信息编码。</li>
+<li>只需要在一层当中使用Attention,并且Attention是单头的。</li>
+<li>在Attention中新增了门结构,使得训练的过程中可以更好的保护已学内容的信息。</li>
+</ol>
+<h3 id="q2-sharnn快在哪里"><strong>Q2: SHARNN快在哪里?</strong></h3>
+<ol>
+<li>Gelu激活函数</li>
+<li>只有一个Block采用了Attention</li>
+<li>Lamb优化器</li>
+<li>Attention KQV的门结构</li>
+<li>使用FP16</li>
+</ol>
+<h3 id="q3-boomlayer是什么"><strong>Q3: Boomlayer是什么?</strong></h3>
+<figure data-type="image" tabindex="1"><img src="https://raw.githubusercontent.com/PingAnPH/Picbed_picgo/main/img/sharnn-p8.jpg" alt="" loading="lazy"></figure>
+<center>图2.1 Boomlayer结构</center>
+<h3 id="q4-为什么不是每一层block都使用了attention机制"><strong>Q4: 为什么不是每一层Block都使用了Attention机制?</strong></h3>
+<p>  作者对比了所有层都使用Attention的情况，当前模型可以比所有层都使用Attetion训练速度快一倍，精度却几乎没有降低。</p>
+<h2 id="附lamb优化器实现"><strong>附：Lamb优化器实现</strong></h2>
+<pre><code class="language-python">class Lamb(Optimizer):
+    # Reference code: https://github.com/cybertronai/pytorch-lamb
+
+    def __init__(
+        self,
+        params,
+        lr: float = 1e-3,
+        betas = (0.9, 0.999),
+        eps: float = 1e-6,
+        weight_decay: float = 0,
+        clamp_value: float = 10,
+        adam: bool = False,
+        debias: bool = False,
+    ):
+        if lr &lt;= 0.0:
+            raise ValueError('Invalid learning rate: {}'.format(lr))
+        if eps &lt; 0.0:
+            raise ValueError('Invalid epsilon value: {}'.format(eps))
+        if not 0.0 &lt;= betas[0] &lt; 1.0:
+            raise ValueError(
+                'Invalid beta parameter at index 0: {}'.format(betas[0])
+            )
+        if not 0.0 &lt;= betas[1] &lt; 1.0:
+            raise ValueError(
+                'Invalid beta parameter at index 1: {}'.format(betas[1])
+            )
+        if weight_decay &lt; 0:
+            raise ValueError(
+                'Invalid weight_decay value: {}'.format(weight_decay)
+            )
+        if clamp_value &lt; 0.0:
+            raise ValueError('Invalid clamp value: {}'.format(clamp_value))
+
+        defaults = dict(lr=lr, betas=betas, eps=eps, weight_decay=weight_decay)
+        self.clamp_value = clamp_value
+        self.adam = adam
+        self.debias = debias
+
+        super(Lamb, self).__init__(params, defaults)
+
+    def step(self, closure = None):
+        loss = None
+        if closure is not None:
+            loss = closure()
+
+        for group in self.param_groups:
+            for p in group['params']:
+                if p.grad is None:
+                    continue
+                grad = p.grad.data
+                if grad.is_sparse:
+                    msg = (
+                        'Lamb does not support sparse gradients, '
+                        'please consider SparseAdam instead'
+                    )
+                    raise RuntimeError(msg)
+
+                state = self.state[p]
+
+                # State initialization
+                if len(state) == 0:
+                    state['step'] = 0
+                    # Exponential moving average of gradient values
+                    state['exp_avg'] = torch.zeros_like(
+                        p, memory_format=torch.preserve_format
+                    )
+                    # Exponential moving average of squared gradient values
+                    state['exp_avg_sq'] = torch.zeros_like(
+                        p, memory_format=torch.preserve_format
+                    )
+
+                exp_avg, exp_avg_sq = state['exp_avg'], state['exp_avg_sq']
+                beta1, beta2 = group['betas']
+
+                state['step'] += 1
+
+                # Decay the first and second moment running average coefficient
+                # m_t
+                exp_avg.mul_(beta1).add_(grad, alpha=1 - beta1)
+                # v_t
+                exp_avg_sq.mul_(beta2).addcmul_(grad, grad, value=1 - beta2)
+
+                # Paper v3 does not use debiasing.
+                if self.debias:
+                    bias_correction = math.sqrt(1 - beta2 ** state['step'])
+                    bias_correction /= 1 - beta1 ** state['step']
+                else:
+                    bias_correction = 1
+
+                # Apply bias to lr to avoid broadcast.
+                step_size = group['lr'] * bias_correction
+
+                weight_norm = torch.norm(p.data).clamp(0, self.clamp_value)
+
+                adam_step = exp_avg / exp_avg_sq.sqrt().add(group['eps'])
+                if group['weight_decay'] != 0:
+                    adam_step.add_(p.data, alpha=group['weight_decay'])
+
+                adam_norm = torch.norm(adam_step)
+                if weight_norm == 0 or adam_norm == 0:
+                    trust_ratio = 1
+                else:
+                    trust_ratio = weight_norm / adam_norm
+                state['weight_norm'] = weight_norm
+                state['adam_norm'] = adam_norm
+                state['trust_ratio'] = trust_ratio
+                if self.adam:
+                    trust_ratio = 1
+
+                p.data.add_(adam_step, alpha=-step_size * trust_ratio)
+
+        return loss
+
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[【技术分享】第1期--语音：Wav2Vec ]]></title>
+        <id>https://pinganph.github.io/p0aZ-0Zxj/</id>
+        <link href="https://pinganph.github.io/p0aZ-0Zxj/">
+        </link>
+        <updated>2021-12-06T06:24:51.000Z</updated>
+        <content type="html"><![CDATA[<style>
+table {
+    margin: auto;
+}
+</style>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><div style="width:100pt">日期</div></th>
+<th style="text-align:center"><div style="width:130pt">技术预研方向</div></th>
+<th style="text-align:center"><div style="width:100pt">主讲人</div></th>
+<th style="text-align:center"><div style="width:220pt">主题</div></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">2021.12.03</td>
+<td style="text-align:center">语音</td>
+<td style="text-align:center">魏万顺</td>
+<td style="text-align:center">Wav2Vec</td>
+</tr>
+</tbody>
+</table>
+<p><strong>参考文献</strong>：</p>
+<ol>
+<li>
+<p><a href="https://arxiv.org/pdf/1807.03748.pdf">Oord A, Li Y, Vinyals O. Representation learning with contrastive predictive coding[J]. arXiv preprint arXiv:1807.03748, 2018.</a></p>
+</li>
+<li>
+<p><a href="https://arxiv.org/pdf/1904.05862.pdf">Schneider S, Baevski A, Collobert R, et al. wav2vec: Unsupervised pre-training for speech recognition[J]. arXiv preprint arXiv:1904.05862, 2019.</a></p>
+</li>
+<li>
+<p><a href="https://arxiv.org/pdf/1910.05453.pdf">Baevski A, Schneider S, Auli M. vq-wav2vec: Self-supervised learning of discrete speech representations[J]. arXiv preprint arXiv:1910.05453, 2019.</a></p>
+</li>
+<li>
+<p><a href="https://arxiv.org/abs/2006.11477v3.pdf">Baevski A, Zhou H, Mohamed A, et al. wav2vec 2.0: A framework for self-supervised learning of speech representations[J]. arXiv preprint arXiv:2006.11477, 2020.</a></p>
+</li>
+</ol>
+<figure data-type="image" tabindex="1"><img src="https://raw.githubusercontent.com/PingAnPH/Picbed_picgo/main/img/wav2vec.jpg" alt="" loading="lazy"></figure>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[【论文分享】第4期：“Meta Fine-Tuning Neural Language Models for Multi-Domain Text Mining”]]></title>
+        <id>https://pinganph.github.io/oCgpGw36j/</id>
+        <link href="https://pinganph.github.io/oCgpGw36j/">
+        </link>
+        <updated>2021-12-06T00:41:10.000Z</updated>
+        <content type="html"><![CDATA[<hr>
+<style>
+table {
+    margin: auto;
+}
+</style>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><div style="width: 60pt">日期</div></th>
+<th style="text-align:center"><div style="width:40pt">主讲人</div></th>
+<th style="text-align:center"><div style="width: 460pt">论文题目</div></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">2021.11.23</td>
+<td style="text-align:center">李越</td>
+<td style="text-align:center"><a href="https://arxiv.org/pdf/2003.13003v1.pdf">Meta Fine-Tuning Neural Language Models for Multi-Domain Text Mining[1]</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="1-abstract"><strong>1. Abstract</strong></h2>
+<p>  This paper the author mainly propose an effective learning procedure named &quot;Meta Fine-Tuning (MFT)&quot;, serving as a meta-learner to solve a group of similar NLP tasks for neural language models. The main inspiration methods of this paper include typicality weighting score and domain corruption training strategy. These two stragegies combine properly with kinds of language models include BERT and Transformers, which improve the training efficiency to a new level and be easy to use in various industries.<br>
+<img src="https://raw.githubusercontent.com/PingAnPH/Picbed_picgo/main/img/20211206091537.png" alt="" loading="lazy"></p>
+<center>Figure 1:Comparison between fine-tuning and MFT[1].</center>
+<h2 id="2-qa"><strong>2. Q&amp;A</strong></h2>
+<h3 id="q1-what-is-meta-learning-in-this-paper-and-how-does-it-work"><strong>Q1: What is Meta Learning in this paper and how does it work?</strong></h3>
+<p>  Meta Learning in this paper is about learning how to fine-tune a model in different task domain. It combines language model with typicality score and domain corruption training strategy.</p>
+<h3 id="q2-what-is-the-typical-training-paradigm-for-mft"><strong>Q2: What is the typical training paradigm for MFT?</strong></h3>
+<p>​  Pre-training，Meta tuning， then fine tuning on different task domain with same initialization.</p>
+<h3 id="q3-why-does-so-called-flipped-domain-labels-can-not-help-model-learn-domain-invariant-representation"><strong>Q3: Why does so-called &quot;flipped domain labels&quot; can not help model learn domain-invariant representation?</strong></h3>
+<p>​  Pre-training，Meta tuning， then fine tuning on different task domain with same initialization.</p>
+<h3 id="q4-do-you-ever-know-some-similar-strategies-like-domain-corruption-strategy-what-is-that"><strong>Q4: Do you ever know some similar strategies like &quot;domain corruption strategy&quot;? What is that?</strong></h3>
+<p>  The EM training strategy is kind of similar to domain corruption strategy in a way that they both apply MLE to maximize the expectation of distribution.</p>
+<h3 id="q5what-kind-of-difficulty-we-could-meet-if-we-apply-mft"><strong>Q5:What kind of difficulty we could meet if we apply MFT?</strong></h3>
+<p>  The typicality score may heavily depend on your real application and thus could be not that efficient. At the same time, MFT need to access all the target domain data, which may not accessible at all time.</p>
+<h3 id="q6-how-to-elaborate-that-the-domain-label-embedding-in-domain-corruption-strategy-could-help-model-learning-domain-invariant-representations"><strong>Q6: How to elaborate that the domain label embedding in domain corruption strategy could help model learning domain-invariant representations?</strong></h3>
+<p>  The author claimed in fact they prove this point in a way that given the knowledge of domain label to model, it could only output the corrupted label. Thus, the model study domain-invaraiant representations by invalidating the domain embedding.</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[【论文分享】第3期：“RepVGG: Making VGG-style ConvNets Great Again”]]></title>
+        <id>https://pinganph.github.io/1SJ0d8xWf/</id>
+        <link href="https://pinganph.github.io/1SJ0d8xWf/">
+        </link>
+        <updated>2021-11-04T06:37:20.000Z</updated>
+        <content type="html"><![CDATA[<hr>
+<style>
+table {
+    margin: auto;
+</style>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><div style="width: 60pt">日期</div></th>
+<th style="text-align:center"><div style="width:40pt">主讲人</div></th>
+<th style="text-align:center"><div style="width: 460pt">论文题目</div></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">2021.11.03</td>
+<td style="text-align:center">柳贤伟</td>
+<td style="text-align:center"><a href="https://arxiv.org/pdf/2101.03697.pdf">RepVGG: Making VGG-style ConvNets Great Again</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="1-论文简介"><strong>1、论文简介</strong></h2>
+<h3 id="模型介绍"><strong>模型介绍：</strong></h3>
+<p>  RepVGG是今年3月份发表的一个用于抽取特征的分类网络，在图像分类上具备SOTA性能，也可应用在其他分类任务中。该模型也是今年<a href="https://www.robots.ox.ac.uk/~vgg/data/voxceleb/competition2021.html">VoxSRC-21（国际声纹识别大赛）</a>第一名的队伍所采用的骨干网络。</p>
+<p><strong>特点：</strong></p>
+<ol>
+<li>RepVGG主要基于原始VGG的网络架构，训练时在VGG网络block块的基础上加入了identity和1x1卷积的两条分支，将ResNet的思想融入VGG框架；</li>
+<li>RepVGG将训练和推理的网络结构解耦合，即在训练时采用ResNet式的多分支架构，在推理时通过参数重构转换为VGG式的单路径架构，便于模型部署，加速推理；</li>
+<li>RepVGG只包含3x3卷积核和ReLU两个操作，可以通过专门的硬件加速优化。</li>
+</ol>
+<figure data-type="image" tabindex="1"><img src="https://raw.githubusercontent.com/PingAnPH/Picbed_picgo/main/img/paper3-1.1.png" alt="" loading="lazy"></figure>
+<center>图1.1 RepVGG的网络结构</center>
+<h3 id="模型细节"><strong>模型细节：</strong></h3>
+<ol>
+<li>模型在训练时采用多分支的网络结构，如图1.1B所示，在原VGG基础上加入了identity和1x1卷积的两条分支，<a href="https://arxiv.org/pdf/1605.06431.pdf">以往研究结果表明</a>，多分支的网络结构实际上是多个模型的隐式集成，因此，多分支结构性能要优于单路径结构；同时，也正是这些残差结构的存在解决了深层网路中的梯度消失问题，使得网络更加易于收敛。</li>
+<li>由于identity可以看成是一个特殊的1x1卷积，而1x1卷积可以看成是<strong>1x1 + padding0</strong> 的3x3卷积核，因此，模型在训练完成后，通过Re-parameterization将3x3，1x1和identity三条分支转化为一个3x3卷积核的单路径结构，加速模型推理，优化内存占用，增加模型的灵活度。</li>
+</ol>
+<h3 id="模型的参数重构"><strong>模型的参数重构：</strong></h3>
+<figure data-type="image" tabindex="2"><img src="https://raw.githubusercontent.com/PingAnPH/Picbed_picgo/main/img/paper3-1.2-1.png" alt="" loading="lazy"></figure>
+<center>图1.2 RepVGG的参数重构</center>
+<p><strong>Step1</strong> ：将残差块中的卷积层和BN层进行融合，该操作在很多深度学习框架的推理阶段都会执行</p>
+<figure data-type="image" tabindex="3"><img src="https://raw.githubusercontent.com/PingAnPH/Picbed_picgo/main/img/paper3-1.3.png" alt="" loading="lazy"></figure>
+<p><strong>Step2</strong>：将融合后的所有分支转换为3*3卷积核</p>
+<p><strong>Step3</strong>：合并转换后的所有分支，得到3x3卷积的单路径</p>
+<h3 id="总结"><strong>总结：</strong></h3>
+<p>  RepVGG是一个用于抽取输入特征的分类网络，该模型最大的一个创新点就是将训练和推理时的网络架构解耦合，通过参数重构将所有分支转换成一个3x3的单路径，便于模型的部署和加速。总的来说，RepVGG在训练时更注重精度，推理时更注重速度，表现出SOTA性能，如图1.3所示。</p>
+<figure data-type="image" tabindex="4"><img src="https://raw.githubusercontent.com/PingAnPH/Picbed_picgo/main/img/paper3-1.4.png" alt="" loading="lazy"></figure>
+<center>图1.3 RepVGG实验性能</center>
+<p>  RepVGG也存在一些问题，具体的问题包括：</p>
+<ol>
+<li>从训练阶段转推理阶段之前，需要执行模型重参数化操作；</li>
+<li>在模型重参数化过程中会增加一些额外的计算量；</li>
+<li>由于每个残差块中引入了多个残差分支，网络的参数量也增加了一些；</li>
+<li>RepVGG是为GPU和专用硬件设计的高效模型，追求高速度、省内存，较少关注参数量和理论计算量。在低算力设备上，可能不如MobileNet和ShuffleNet系列适用。</li>
+</ol>
+<h2 id="2-qa环节"><strong>2、QA环节</strong></h2>
+<h3 id="q1-相比原始vggrepvgg的改进点在哪"><strong>Q1: 相比原始VGG，RepVGG的改进点在哪？</strong></h3>
+<p>  RepVGG相比起原始VGG，训练时在VGG原block上加入了identity和1x1卷积的两条分支，将ResNet的思想融入VGG框架；同时，原始VGG训练和推理时的结构统一， 而RepVGG在训练和推理时采用不同的网络架构，训练时采用多分支结构，推理时采用单路径结构，便于模型的部署和加速。</p>
+<h3 id="q2-repvgg在训练时和推理时的网络结构和最后输出结果是否一致"><strong>Q2: RepVGG在训练时和推理时的网络结构和最后输出结果是否一致？</strong></h3>
+<p>​  <strong>网络结构不一致，输出结果一致</strong>。因为从训练时的结构到推理时的结构这一个变换过程采用的是数学上的等效变换，所以，对于相同的输入而言，其运算过程是一致的，只不过在推理时将原来分开算的部分合并在了一起，减少参数量，但最后的输出结果应该还是一致不变的。</p>
+<h3 id="q3-单路径和多分支网络结构的优缺点是什么"><strong>Q3: 单路径和多分支网络结构的优缺点是什么？</strong></h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th style="text-align:center">single-path</th>
+<th style="text-align:center">multi-branch</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Speed</strong></td>
+<td style="text-align:center">fast（√）</td>
+<td style="text-align:center">slow（×）</td>
+</tr>
+<tr>
+<td><strong>Memory cost</strong></td>
+<td style="text-align:center">low（√）</td>
+<td style="text-align:center">high（×）</td>
+</tr>
+<tr>
+<td><strong>Performance</strong></td>
+<td style="text-align:center">low（x）</td>
+<td style="text-align:center">high（√）</td>
+</tr>
+<tr>
+<td><strong>Implement</strong></td>
+<td style="text-align:center">easy（√）</td>
+<td style="text-align:center">hard（×）</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>多分支:</strong> 可以达到高性能但推理速度慢；</li>
+<li><strong>单路径:</strong> 加深网络可以提高模型性能，但仍比不上多分支；</li>
+<li><strong>RepVGG</strong>：训练时多分支，推理时单路径。</li>
+</ul>
+<h3 id="q4-为什么采用大小为3x3的卷积核而不是其他大小的"><strong>Q4: 为什么采用大小为3x3的卷积核，而不是其他大小的？</strong></h3>
+<p>  作者在论文中分别对不同大小的卷积核的浮点运算、所需时间、以及对应的计算密度做了测试，结果如图2.1所示。</p>
+<figure data-type="image" tabindex="5"><img src="https://raw.githubusercontent.com/PingAnPH/Picbed_picgo/main/img/paper3-2.1.png" alt="" loading="lazy"></figure>
+<center>图2.1 不同kernel大小比较</center>
+<p>  可以看到，尽管3x3大小的浮点运算并不是最小的，但是其计算密度差不多是其他大小的四倍，综合考虑，模型采用3x3大小的卷积核。</p>
+<h3 id="q5-什么是模型的参数重构"><strong>Q5: 什么是模型的“参数重构”？</strong></h3>
+<p>  参数重构，即结构重参数化，指的是从一种网络结构等价变换到另一种网络结构，具体变换由参数之间的关系实现，只要能把前者的参数等价转换为后者，就可以将前者的结构等价转换为后者。</p>
+<h3 id="q6-残差连接的目的"><strong>Q6: 残差连接的目的？</strong></h3>
+<p>  带有残差连接的模型其性能会优于不带残差连接的模型，因为残差连接相当于在block中多了一条分支（假设总共有2条分支），当n个block连接在一起时，意味着模型将有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mi>n</mi></msup></mrow><annotation encoding="application/x-tex">2^n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.664392em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span></span></span></span></span></span></span></span>路径，为多个模型的隐式集成，如下所示：</p>
+<figure data-type="image" tabindex="6"><img src="https://raw.githubusercontent.com/PingAnPH/Picbed_picgo/main/img/paper3-2.2.png" alt="" loading="lazy"></figure>
+<center>图2.2 残差连接的隐式集成</center>
+<p>  另外，也正是这些残差结构的存在解决了深层网路中的梯度消失问题，使得网络更加易于收敛。</p>
+<h3 id="q7-为什么repvgg-block第一层没有identity分支"><strong>Q7: 为什么RepVGG block第一层没有identity分支？</strong></h3>
+<p>  <strong>降采样的需要</strong>。无论是VGG还是ResNet，模型都会有一个降采样的过程。如果RepVGG block第一层也带有identity分支的话，那么该层的输入和输出维度必须保持一致，而block后面所有层都是带identity分支的，意味着RepVGG block输入和输出维度相同，没有降采样的过程。所以RepVGG block第一层会把identity分支给去除，通过调整Conv 的stride 大小来进行一个降采样。</p>
+<h3 id="q8-为什么identity可以看成3x3卷积"><strong>Q8: 为什么identity可以看成3x3卷积？</strong></h3>
+<p>  1x1的卷积可以看成是外层参数为0 的3x3卷积，而identity又可以看成是特殊的1x1卷积，具体如图2.3所示，输出通道1的两个卷积核分别对输入的两个通道进行卷积操作，得到的结果再求和相加，如果把对输入通道1的参数设为1，输入通道2的卷积核参数设为0的话，那么输出通道1的结果就会与输入通道1相等，同理，在输出通道2中，如果把对输入通道1的参数设为0，输入通道1的卷积核参数设为1的话，那么输出通道2的结果就会与输入通道2相等。</p>
+<figure data-type="image" tabindex="7"><img src="https://raw.githubusercontent.com/PingAnPH/Picbed_picgo/main/img/paper3-2.3.png" alt="" loading="lazy"></figure>
+<center>图2.3 identity的3x3卷积等效</center>
+<h3 id="q9-bn融合时的mu-sigma-gamma-beta参数从哪来"><strong>Q9: BN融合时的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>μ</mi></mrow><annotation encoding="application/x-tex">\mu</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">μ</span></span></span></span>, <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>σ</mi></mrow><annotation encoding="application/x-tex">\sigma</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">σ</span></span></span></span>, <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>γ</mi></mrow><annotation encoding="application/x-tex">\gamma</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05556em;">γ</span></span></span></span>, <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>β</mi></mrow><annotation encoding="application/x-tex">\beta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05278em;">β</span></span></span></span>参数从哪来？</strong></h3>
+<p>  <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>μ</mi></mrow><annotation encoding="application/x-tex">\mu</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">μ</span></span></span></span>, <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>σ</mi></mrow><annotation encoding="application/x-tex">\sigma</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">σ</span></span></span></span>代表batch的均值和方差，实际上这里代表的是训练时积累的均值和方差；<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>γ</mi></mrow><annotation encoding="application/x-tex">\gamma</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05556em;">γ</span></span></span></span>, <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>β</mi></mrow><annotation encoding="application/x-tex">\beta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05278em;">β</span></span></span></span>属于训练参数，在训练过程中随着模型参数迭代自动学到。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[【论文分享】第2期：“PolarMask: Single Shot Instance Segmentation with Polar Representation”]]></title>
+        <id>https://pinganph.github.io/n9BUrENbN/</id>
+        <link href="https://pinganph.github.io/n9BUrENbN/">
+        </link>
+        <updated>2021-10-21T01:05:51.000Z</updated>
+        <content type="html"><![CDATA[<hr>
+<style>
+table {
+    margin: auto;
+}
+</style>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><div style="width: 60pt">日期</div></th>
+<th style="text-align:center"><div style="width:40pt">主讲人</div></th>
+<th style="text-align:center"><div style="width: 460pt">论文题目</div></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">2021.10.15</td>
+<td style="text-align:center">邱肖肖</td>
+<td style="text-align:center"><a href="https://arxiv.org/pdf/1909.13226.pdf">PolarMask: Single Shot Instance Segmentation with Polar Representation</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="1-论文简介"><strong>1、论文简介</strong></h2>
+<p><strong>目的</strong>：PolarMask这篇文章的目的是实现对图像中的目标进行检测、分类并分割。</p>
+<p><strong>方法</strong>：该文章的方法的网络结构如图1所示，主要由主干网络提取特征，最后输出分类、centermess和mask三个分支。分类分支表示该点是某个类别的概率，centermess分支表示该点是中心点的概率，mask分支是目标边界上的n个等角度采样点到该点的距离。其中分类分支和centeress分支主要用于目标的定位和分类，mask 分支用于分割。</p>
+<figure data-type="image" tabindex="1"><img src="https://raw.githubusercontent.com/PingAnPH/Picbed_picgo/main/img/paper2-1.1.png" alt="图1.1 polarmaskde的网络结构" loading="lazy"></figure>
+<center>图1.1 polarmask的网络结构</center>
+<p><strong>损失函数</strong>：</p>
+<ul>
+<li>
+<p>Classification (focal loss):</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>L</mi><mrow><mi>f</mi><mi>l</mi></mrow></msub><mo>=</mo><mrow><mo fence="true">{</mo><mtable><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mo>−</mo><mi>α</mi><msup><mrow><mo fence="true">(</mo><mn>1</mn><mo>−</mo><msup><mi>y</mi><mo mathvariant="normal">′</mo></msup><mo fence="true">)</mo></mrow><mi>γ</mi></msup><mi>log</mi><mo>⁡</mo><msup><mi>y</mi><mo mathvariant="normal">′</mo></msup><mo separator="true">,</mo><mtext>                    </mtext><mi>y</mi><mo>=</mo><mn>1</mn></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mo>−</mo><mrow><mo fence="true">(</mo><mn>1</mn><mo>−</mo><mi>α</mi><mo fence="true">)</mo></mrow><msup><msup><mi>y</mi><mo mathvariant="normal">′</mo></msup><mi>γ</mi></msup><mi>log</mi><mo>⁡</mo><mrow><mo fence="true">(</mo><mn>1</mn><mo>−</mo><msup><mi>y</mi><mo mathvariant="normal">′</mo></msup><mo fence="true">)</mo></mrow><mo separator="true">,</mo><mtext>            </mtext><mi>y</mi><mo>=</mo><mn>0</mn></mrow></mstyle></mtd></mtr></mtable></mrow></mrow><annotation encoding="application/x-tex">L_{fl}=\left\{\begin{matrix}
+-\alpha\left(1-y^\prime\right)^\gamma\log{y^\prime},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ y=1\\ 
+-\left(1-\alpha\right){y^\prime}^\gamma\log{\left(1-y^\prime\right)},\ \ \ \ \ \ \ \ \ \ \ \ y=0
+\end{matrix}\right.
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault">L</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361079999999999em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.10764em;">f</span><span class="mord mathdefault mtight" style="margin-right:0.01968em;">l</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.40003em;vertical-align:-0.95003em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size3">{</span></span><span class="mord"><span class="mtable"><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.45em;"><span style="top:-3.61em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">−</span><span class="mord mathdefault" style="margin-right:0.0037em;">α</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner"><span class="minner"><span class="mopen delimcenter" style="top:0em;">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span><span class="mclose delimcenter" style="top:0em;">)</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.806184em;"><span style="top:-3.2047920000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.05556em;">γ</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mspace"> </span><span class="mspace"> </span><span class="mspace"> </span><span class="mspace"> </span><span class="mspace"> </span><span class="mspace"> </span><span class="mspace"> </span><span class="mspace"> </span><span class="mspace"> </span><span class="mspace"> </span><span class="mspace"> </span><span class="mspace"> </span><span class="mspace"> </span><span class="mspace"> </span><span class="mspace"> </span><span class="mspace"> </span><span class="mspace"> </span><span class="mspace"> </span><span class="mspace"> </span><span class="mspace"> </span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord">1</span></span></span><span style="top:-2.4099999999999997em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">−</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault" style="margin-right:0.0037em;">α</span><span class="mclose delimcenter" style="top:0em;">)</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord"><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.806184em;"><span style="top:-3.2047920000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.05556em;">γ</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="minner"><span class="mopen delimcenter" style="top:0em;">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span><span class="mclose delimcenter" style="top:0em;">)</span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mspace"> </span><span class="mspace"> </span><span class="mspace"> </span><span class="mspace"> </span><span class="mspace"> </span><span class="mspace"> </span><span class="mspace"> </span><span class="mspace"> </span><span class="mspace"> </span><span class="mspace"> </span><span class="mspace"> </span><span class="mspace"> </span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.9500000000000004em;"><span></span></span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+</li>
+<li>
+<p>Polar centerness (BCE loss):</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>l</mi><mi>o</mi><mi>s</mi><mi>s</mi><mo>(</mo><msub><mi>X</mi><mi>i</mi></msub><mo separator="true">,</mo><msub><mi>y</mi><mi>i</mi></msub><mo>)</mo><mo>=</mo><mo>−</mo><msub><mi>w</mi><mi>i</mi></msub><mo>[</mo><msub><mi>y</mi><mi>i</mi></msub><mi>l</mi><mi>o</mi><mi>g</mi><msub><mi>x</mi><mi>i</mi></msub><mo>+</mo><mo>(</mo><mn>1</mn><mo>−</mo><msub><mi>y</mi><mi>i</mi></msub><mo>)</mo><mi>l</mi><mi>o</mi><mi>g</mi><mo>(</mo><mn>1</mn><mo>−</mo><msub><mi>x</mi><mi>i</mi></msub><mo>)</mo><mo>]</mo></mrow><annotation encoding="application/x-tex">loss(X_i, y_i)=-w_i[y_ilogx_i + (1-y_i)log(1-x_i)]
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault">s</span><span class="mord mathdefault">s</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07847em;">X</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.07847em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">−</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.02691em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">[</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mclose">]</span></span></span></span></span></p>
+</li>
+<li>
+<p>Mask regression (polar IOU loss):</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>P</mi><mi>o</mi><mi>l</mi><mi>a</mi><mi>r</mi><mi>I</mi><mi>o</mi><mi>U</mi><mo>=</mo><mfrac><mrow><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><msub><mi>d</mi><mrow><mi>m</mi><mi>i</mi><mi>n</mi></mrow></msub></mrow><mrow><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><msub><mi>d</mi><mrow><mi>m</mi><mi>a</mi><mi>x</mi></mrow></msub></mrow></mfrac></mrow><annotation encoding="application/x-tex">Polar IoU =\frac{\sum_{i=1}^{n}d_{min}}{\sum_{i=1}^{n}d_{max}}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">a</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault" style="margin-right:0.07847em;">I</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.10903em;">U</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.488004em;vertical-align:-0.994002em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.494002em;"><span style="top:-2.305708em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.804292em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">m</span><span class="mord mathdefault mtight">a</span><span class="mord mathdefault mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.6897100000000003em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.804292em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">m</span><span class="mord mathdefault mtight">i</span><span class="mord mathdefault mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.994002em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+</li>
+</ul>
+<p><strong>推理步骤</strong>：</p>
+<ol>
+<li>一张图像输入到网络中后，得到分类、centerness和 mask分支结果;</li>
+<li>分类分支和centerness分支结果相乘得到每个像素点的得分，取前m个得分高的点;</li>
+<li>得到这m个点的分类结果和对应mask分支结果;</li>
+<li>根据这m个点的位置和mask分支结果，可以得到边界等角度采样点的位置，然后按角度大小顺序将这些点连接起来就可以得到目标边界，从而实现实例分割。</li>
+</ol>
+<p><strong>结果</strong>：目前常用的实例分割方法是two stage的方法，即先检测后分割。这种方法比较慢而且在第二步分害时常用像素级分割的方法，像素集分割的方法无法很好的分割边界区域目不太好解决目标重叠的问题。Polarmak方法既达到了比较好的效果，速度还比two-tage方法快。对比结果如图2所示。</p>
+<figure data-type="image" tabindex="2"><img src="https://raw.githubusercontent.com/PingAnPH/Picbed_picgo/main/img/20211029155102.png" alt="" loading="lazy"></figure>
+<center>图1.2 几种实例分割方法对比</center>
+<h2 id="2-qa环节"><strong>2、QA环节</strong></h2>
+<h3 id="q1-one-stage-与-two-stage-实例分割方法的优缺点"><strong>Q1: one-stage 与 two-stage 实例分割方法的优缺点？</strong></h3>
+<p>​  two-stage实例分割方法是先进行目标检测将目标框出来，然后在目标框内再进行分割任务。这种方法分割效果比one-stage方法要好一些，但是速度慢。</p>
+<p>  onestage实例分割方法直接对目标进行分割，需要更多的数据增强和额外标签 ，速度比two-stage方法快，但是分割效果没有two-stage方法好。</p>
+<h3 id="q2-中心点的选取mass-center为什么比box-center好"><strong>Q2: 中心点的选取，mass-center为什么比Box center好？</strong></h3>
+<p>  因为polarmask方法中，中心点需要落在目标内部，这样的分割效果更好一些。mass-center相比Box center中心点有更大的概率落在目标内部，所以mass-center比Box center好。</p>
+<h3 id="q3-如果中心点不在检测目标内部该如何处理"><strong>Q3: 如果中心点不在检测目标内部该如何处理?</strong></h3>
+<p>  如果中心点不在目标的内部，当采样射线与边界有多个交点时，取最远点与中心点的距离当作标签，采样射线与边界没有交点时，选取一个比较小的值(比如1e-6)作标签。</p>
+<h3 id="q4-有没有什么选取方法是中心点一定在目标内部的"><strong>Q4: 有没有什么选取方法是中心点一定在目标内部的？</strong></h3>
+<p>  文章中提到的方法是先用mass-center或Box center方法计算中心点再计算centerness，这样中心的有可能落在目标外部，导致分割效果不好。可以先计算目标内部所有点的centerness然后取centerness 最大的点当作中心点，这样的话就可以保证中心点在目标内部，但是这样的方法计算量相对会大一些，如果目标面积比较大的话需要计算很长时间。</p>
+<h3 id="q5-在推理时为什么要将分类分支的得分与centerness相乘"><strong>Q5: 在推理时，为什么要将分类分支的得分与centerness相乘?</strong></h3>
+<p>  因为文中采用mass-center当作中心点，但mass-center不一定是目标比较中心的点。将分类分支的得分与centerness相乘，可以增加高质量中心点标签的权重，降低低质量中心点标签的权重。</p>
+<h3 id="q6-就是图像检测中用极坐标和相对于常见的xy那种坐标有啥优势吗还是对于不同任务会选取不同的坐标那这样的话有啥选取规则吗"><strong>Q6: 就是图像检测中用极坐标和相对于常见的x，y那种坐标有啥优势吗？还是对于不同任务会选取不同的坐标，那这样的话有啥选取规则吗?</strong></h3>
+<p>  因为实例分割方法是要将目标分割出来（找到目标边界），polar的表示方法有方向性，即如果我们定义了采样角度的大小，可以根据边界点距中心点的距离找到采样边界点的位置，然后按角度的大小顺序将采样边界点连接起来就可以画出目标的轮廓，从而实现实例分割。如果用常见的x，y坐标表示方法表示，只能获得采样边界点的位置，但是不知道这些点的连接顺序，还是无法画出目标的边界，所以这种实例分割只适合采用极坐标的表示方法。</p>
+<h3 id="q7-为什么要检测中心点"><strong>Q7: 为什么要检测中心点?</strong></h3>
+<p>  因为本文中的方法要求表示目标的点最好落在目标内部，采用中心点可以比较大概率地保证选取的点在目标内部，所以用中心点表示目标的正样本。</p>
+<h3 id="q8-在计算polar-iou时为什么用frac12d2"><strong>Q8: 在计算polar IOU时，为什么用<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac><msup><mi>d</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">\frac{1}{2}d^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.190108em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.845108em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord"><span class="mord mathdefault">d</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span>?</strong></h3>
+<p>  因为polar IOU的计算是标签(图1中绿色圈)与预测(图1中红色圈)的交集/并集，扇形的面积计算公式为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac><msup><mi>l</mi><mn>2</mn></msup><mi>θ</mi></mrow><annotation encoding="application/x-tex">\frac{1}{2} l^2 \theta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.190108em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.845108em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span></span></span></span>。所以图2.1中的IOU计算公式分子为标签与预测的交集面积，分母为标签与预测的并集面积。</p>
+<figure data-type="image" tabindex="3"><img src="https://raw.githubusercontent.com/PingAnPH/Picbed_picgo/main/img/paper2-1.png" alt="" loading="lazy"></figure>
+<center>图2.1 计算polar IOU</center>
+<h3 id="q9-最终分割结果为什么会有重叠部分重叠部分是怎么处理的"><strong>Q9: 最终分割结果为什么会有重叠部分，重叠部分是怎么处理的?</strong></h3>
+<p>  因为在分类分支中我们只采用中心点附近的一些点(文章中采用中心点附近九个点)当作正样本，所以在预测时，目标中心点附近的分类得分以及centerness 值会比较高，其他地方的得分很小(几乎为零〉。在推理阶段，会取得分在前n (例如前300，这个数值根据数据集中图像内目标的多少来定)的像素点的结果。所以一般会取到目标中心点附近的像素点的分类结果和mask值(36个距离)，从而得到目标的分类和分割结果，而比较偏离中心点的地方(如图2.2中重叠部分)的网络输出结果不会用来计算目标的分类和分割结果。</p>
+<figure data-type="image" tabindex="4"><img src="https://raw.githubusercontent.com/PingAnPH/Picbed_picgo/main/img/20211021111618.png" alt="" loading="lazy"></figure>
+<center>图2.2 有重叠的结果图</center>
+<h3 id="q10-最终如何评价实例分割的效果用什么评价指标"><strong>Q10: 最终如何评价实例分割的效果，用什么评价指标?</strong></h3>
+<p>  一般像素级分割 (语义分割)用的评价指标是像素点的准确率， 即查看标签和预测中分类正确的像素点的个数(TP+TN)/总像素点个数(P+N)</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi><mi>P</mi><mo>=</mo><mo>(</mo><mi>T</mi><mi>P</mi><mo>+</mo><mi>T</mi><mi>N</mi><mo>)</mo><mi mathvariant="normal">/</mi><mo>(</mo><mi>P</mi><mo>+</mo><mi>N</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">AP= (TP+TN)/(P+N)
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">A</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mclose">)</span><span class="mord">/</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mclose">)</span></span></span></span></span></p>
+<p>  而目标检测和实例分割中用IOU阈值来定义是否检测正确即(TP)，准确率用TP/P来计算，如<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi><msub><mi>P</mi><mn>50</mn></msub></mrow><annotation encoding="application/x-tex">AP_{50}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord mathdefault">A</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">5</span><span class="mord mtight">0</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>表示标签上与预测的lOU&gt;0.5时才算做检测正确即为(TP)，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi><mi>P</mi></mrow><annotation encoding="application/x-tex">AP</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">A</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span></span></span></span>计算是针对10个IOU阈值下的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi><mi>P</mi></mrow><annotation encoding="application/x-tex">AP</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">A</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span></span></span></span>值取平均(这是个IOU阈值好像是np.linspace(0.5,0.95,10)。一般应用中用<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi><msub><mi>P</mi><mn>50</mn></msub></mrow><annotation encoding="application/x-tex">AP_{50}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord mathdefault">A</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">5</span><span class="mord mtight">0</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>或<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi><msub><mi>P</mi><mn>75</mn></msub></mrow><annotation encoding="application/x-tex">AP_{75}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord mathdefault">A</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">7</span><span class="mord mtight">5</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>来评价目标检测和实例分割的效果，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi><mi>P</mi></mrow><annotation encoding="application/x-tex">AP</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">A</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span></span></span></span>在论文中做对比实验时用的比较多</p>
+<h3 id="q11-文章中一个目标有多个正样本中心点附近9个那么推理预测时会不会出现重复的预测结果"><strong>Q11: 文章中一个目标有多个正样本(中心点附近9个)，那么推理预测时会不会出现重复的预测结果?</strong></h3>
+<p>  不会，在推理时，会用非极大值抑制(nms) 的方法去除重复预测的结果。就是计算每两个预测结果的IOU,当IOU&gt;阈值(这个阈值自己设定)时，视为重复预测，然后选取分类得分高的预测当作最终结果，得分低的预测会被删掉。</p>
+]]></content>
+    </entry>
+</feed>

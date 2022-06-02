@@ -1,0 +1,370 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>【论文分享】第3期：“RepVGG: Making VGG-style ConvNets Great Again” | 平安普惠创新管理部</title>
+<link rel="shortcut icon" href="https://pinganph.github.io/favicon.ico?v=1654160904549">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://pinganph.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="【论文分享】第3期：“RepVGG: Making VGG-style ConvNets Great Again” | 平安普惠创新管理部 - Atom Feed" href="https://pinganph.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="
+
+table {
+    margin: auto;
+
+
+
+
+日期
+主讲人
+论文题目
+
+
+
+
+2021.11.03
+柳贤伟
+RepVGG: Making VGG-style ConvNets Great Again
+
+
+
+1、论文简介
+模..." />
+    <meta name="keywords" content="Paper Shared,SPEECH,CV" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://pinganph.github.io">
+  <img class="avatar" src="https://pinganph.github.io/images/avatar.png?v=1654160904549" alt="">
+  </a>
+  <h1 class="site-title">
+    平安普惠创新管理部
+  </h1>
+  <p class="site-description">
+    本站主要用于发布平安普惠创新管理部的分享博客
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          文章
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              【论文分享】第3期：“RepVGG: Making VGG-style ConvNets Great Again”
+            </h2>
+            <div class="post-info">
+              <span>
+                2021-11-04
+              </span>
+              <span>
+                7 min read
+              </span>
+              
+                <a href="https://pinganph.github.io/SNdINpDC0/" class="post-tag">
+                  # Paper Shared
+                </a>
+              
+                <a href="https://pinganph.github.io/imwUzuLcp/" class="post-tag">
+                  # SPEECH
+                </a>
+              
+                <a href="https://pinganph.github.io/tkkKSD6dS/" class="post-tag">
+                  # CV
+                </a>
+              
+            </div>
+            
+              <img class="post-feature-image" src="https://raw.githubusercontent.com/PingAnPH/Picbed_picgo/main/img/paper3-1.1-1.png" alt="">
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <hr>
+<style>
+table {
+    margin: auto;
+</style>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><div style="width: 60pt">日期</div></th>
+<th style="text-align:center"><div style="width:40pt">主讲人</div></th>
+<th style="text-align:center"><div style="width: 460pt">论文题目</div></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">2021.11.03</td>
+<td style="text-align:center">柳贤伟</td>
+<td style="text-align:center"><a href="https://arxiv.org/pdf/2101.03697.pdf">RepVGG: Making VGG-style ConvNets Great Again</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="1-论文简介"><strong>1、论文简介</strong></h2>
+<h3 id="模型介绍"><strong>模型介绍：</strong></h3>
+<p>  RepVGG是今年3月份发表的一个用于抽取特征的分类网络，在图像分类上具备SOTA性能，也可应用在其他分类任务中。该模型也是今年<a href="https://www.robots.ox.ac.uk/~vgg/data/voxceleb/competition2021.html">VoxSRC-21（国际声纹识别大赛）</a>第一名的队伍所采用的骨干网络。</p>
+<p><strong>特点：</strong></p>
+<ol>
+<li>RepVGG主要基于原始VGG的网络架构，训练时在VGG网络block块的基础上加入了identity和1x1卷积的两条分支，将ResNet的思想融入VGG框架；</li>
+<li>RepVGG将训练和推理的网络结构解耦合，即在训练时采用ResNet式的多分支架构，在推理时通过参数重构转换为VGG式的单路径架构，便于模型部署，加速推理；</li>
+<li>RepVGG只包含3x3卷积核和ReLU两个操作，可以通过专门的硬件加速优化。</li>
+</ol>
+<figure data-type="image" tabindex="1"><img src="https://raw.githubusercontent.com/PingAnPH/Picbed_picgo/main/img/paper3-1.1.png" alt="" loading="lazy"></figure>
+<center>图1.1 RepVGG的网络结构</center>
+<h3 id="模型细节"><strong>模型细节：</strong></h3>
+<ol>
+<li>模型在训练时采用多分支的网络结构，如图1.1B所示，在原VGG基础上加入了identity和1x1卷积的两条分支，<a href="https://arxiv.org/pdf/1605.06431.pdf">以往研究结果表明</a>，多分支的网络结构实际上是多个模型的隐式集成，因此，多分支结构性能要优于单路径结构；同时，也正是这些残差结构的存在解决了深层网路中的梯度消失问题，使得网络更加易于收敛。</li>
+<li>由于identity可以看成是一个特殊的1x1卷积，而1x1卷积可以看成是<strong>1x1 + padding0</strong> 的3x3卷积核，因此，模型在训练完成后，通过Re-parameterization将3x3，1x1和identity三条分支转化为一个3x3卷积核的单路径结构，加速模型推理，优化内存占用，增加模型的灵活度。</li>
+</ol>
+<h3 id="模型的参数重构"><strong>模型的参数重构：</strong></h3>
+<figure data-type="image" tabindex="2"><img src="https://raw.githubusercontent.com/PingAnPH/Picbed_picgo/main/img/paper3-1.2-1.png" alt="" loading="lazy"></figure>
+<center>图1.2 RepVGG的参数重构</center>
+<p><strong>Step1</strong> ：将残差块中的卷积层和BN层进行融合，该操作在很多深度学习框架的推理阶段都会执行</p>
+<figure data-type="image" tabindex="3"><img src="https://raw.githubusercontent.com/PingAnPH/Picbed_picgo/main/img/paper3-1.3.png" alt="" loading="lazy"></figure>
+<p><strong>Step2</strong>：将融合后的所有分支转换为3*3卷积核</p>
+<p><strong>Step3</strong>：合并转换后的所有分支，得到3x3卷积的单路径</p>
+<h3 id="总结"><strong>总结：</strong></h3>
+<p>  RepVGG是一个用于抽取输入特征的分类网络，该模型最大的一个创新点就是将训练和推理时的网络架构解耦合，通过参数重构将所有分支转换成一个3x3的单路径，便于模型的部署和加速。总的来说，RepVGG在训练时更注重精度，推理时更注重速度，表现出SOTA性能，如图1.3所示。</p>
+<figure data-type="image" tabindex="4"><img src="https://raw.githubusercontent.com/PingAnPH/Picbed_picgo/main/img/paper3-1.4.png" alt="" loading="lazy"></figure>
+<center>图1.3 RepVGG实验性能</center>
+<p>  RepVGG也存在一些问题，具体的问题包括：</p>
+<ol>
+<li>从训练阶段转推理阶段之前，需要执行模型重参数化操作；</li>
+<li>在模型重参数化过程中会增加一些额外的计算量；</li>
+<li>由于每个残差块中引入了多个残差分支，网络的参数量也增加了一些；</li>
+<li>RepVGG是为GPU和专用硬件设计的高效模型，追求高速度、省内存，较少关注参数量和理论计算量。在低算力设备上，可能不如MobileNet和ShuffleNet系列适用。</li>
+</ol>
+<h2 id="2-qa环节"><strong>2、QA环节</strong></h2>
+<h3 id="q1-相比原始vggrepvgg的改进点在哪"><strong>Q1: 相比原始VGG，RepVGG的改进点在哪？</strong></h3>
+<p>  RepVGG相比起原始VGG，训练时在VGG原block上加入了identity和1x1卷积的两条分支，将ResNet的思想融入VGG框架；同时，原始VGG训练和推理时的结构统一， 而RepVGG在训练和推理时采用不同的网络架构，训练时采用多分支结构，推理时采用单路径结构，便于模型的部署和加速。</p>
+<h3 id="q2-repvgg在训练时和推理时的网络结构和最后输出结果是否一致"><strong>Q2: RepVGG在训练时和推理时的网络结构和最后输出结果是否一致？</strong></h3>
+<p>​  <strong>网络结构不一致，输出结果一致</strong>。因为从训练时的结构到推理时的结构这一个变换过程采用的是数学上的等效变换，所以，对于相同的输入而言，其运算过程是一致的，只不过在推理时将原来分开算的部分合并在了一起，减少参数量，但最后的输出结果应该还是一致不变的。</p>
+<h3 id="q3-单路径和多分支网络结构的优缺点是什么"><strong>Q3: 单路径和多分支网络结构的优缺点是什么？</strong></h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th style="text-align:center">single-path</th>
+<th style="text-align:center">multi-branch</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Speed</strong></td>
+<td style="text-align:center">fast（√）</td>
+<td style="text-align:center">slow（×）</td>
+</tr>
+<tr>
+<td><strong>Memory cost</strong></td>
+<td style="text-align:center">low（√）</td>
+<td style="text-align:center">high（×）</td>
+</tr>
+<tr>
+<td><strong>Performance</strong></td>
+<td style="text-align:center">low（x）</td>
+<td style="text-align:center">high（√）</td>
+</tr>
+<tr>
+<td><strong>Implement</strong></td>
+<td style="text-align:center">easy（√）</td>
+<td style="text-align:center">hard（×）</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>多分支:</strong> 可以达到高性能但推理速度慢；</li>
+<li><strong>单路径:</strong> 加深网络可以提高模型性能，但仍比不上多分支；</li>
+<li><strong>RepVGG</strong>：训练时多分支，推理时单路径。</li>
+</ul>
+<h3 id="q4-为什么采用大小为3x3的卷积核而不是其他大小的"><strong>Q4: 为什么采用大小为3x3的卷积核，而不是其他大小的？</strong></h3>
+<p>  作者在论文中分别对不同大小的卷积核的浮点运算、所需时间、以及对应的计算密度做了测试，结果如图2.1所示。</p>
+<figure data-type="image" tabindex="5"><img src="https://raw.githubusercontent.com/PingAnPH/Picbed_picgo/main/img/paper3-2.1.png" alt="" loading="lazy"></figure>
+<center>图2.1 不同kernel大小比较</center>
+<p>  可以看到，尽管3x3大小的浮点运算并不是最小的，但是其计算密度差不多是其他大小的四倍，综合考虑，模型采用3x3大小的卷积核。</p>
+<h3 id="q5-什么是模型的参数重构"><strong>Q5: 什么是模型的“参数重构”？</strong></h3>
+<p>  参数重构，即结构重参数化，指的是从一种网络结构等价变换到另一种网络结构，具体变换由参数之间的关系实现，只要能把前者的参数等价转换为后者，就可以将前者的结构等价转换为后者。</p>
+<h3 id="q6-残差连接的目的"><strong>Q6: 残差连接的目的？</strong></h3>
+<p>  带有残差连接的模型其性能会优于不带残差连接的模型，因为残差连接相当于在block中多了一条分支（假设总共有2条分支），当n个block连接在一起时，意味着模型将有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mi>n</mi></msup></mrow><annotation encoding="application/x-tex">2^n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.664392em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span></span></span></span></span></span></span></span>路径，为多个模型的隐式集成，如下所示：</p>
+<figure data-type="image" tabindex="6"><img src="https://raw.githubusercontent.com/PingAnPH/Picbed_picgo/main/img/paper3-2.2.png" alt="" loading="lazy"></figure>
+<center>图2.2 残差连接的隐式集成</center>
+<p>  另外，也正是这些残差结构的存在解决了深层网路中的梯度消失问题，使得网络更加易于收敛。</p>
+<h3 id="q7-为什么repvgg-block第一层没有identity分支"><strong>Q7: 为什么RepVGG block第一层没有identity分支？</strong></h3>
+<p>  <strong>降采样的需要</strong>。无论是VGG还是ResNet，模型都会有一个降采样的过程。如果RepVGG block第一层也带有identity分支的话，那么该层的输入和输出维度必须保持一致，而block后面所有层都是带identity分支的，意味着RepVGG block输入和输出维度相同，没有降采样的过程。所以RepVGG block第一层会把identity分支给去除，通过调整Conv 的stride 大小来进行一个降采样。</p>
+<h3 id="q8-为什么identity可以看成3x3卷积"><strong>Q8: 为什么identity可以看成3x3卷积？</strong></h3>
+<p>  1x1的卷积可以看成是外层参数为0 的3x3卷积，而identity又可以看成是特殊的1x1卷积，具体如图2.3所示，输出通道1的两个卷积核分别对输入的两个通道进行卷积操作，得到的结果再求和相加，如果把对输入通道1的参数设为1，输入通道2的卷积核参数设为0的话，那么输出通道1的结果就会与输入通道1相等，同理，在输出通道2中，如果把对输入通道1的参数设为0，输入通道1的卷积核参数设为1的话，那么输出通道2的结果就会与输入通道2相等。</p>
+<figure data-type="image" tabindex="7"><img src="https://raw.githubusercontent.com/PingAnPH/Picbed_picgo/main/img/paper3-2.3.png" alt="" loading="lazy"></figure>
+<center>图2.3 identity的3x3卷积等效</center>
+<h3 id="q9-bn融合时的mu-sigma-gamma-beta参数从哪来"><strong>Q9: BN融合时的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>μ</mi></mrow><annotation encoding="application/x-tex">\mu</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">μ</span></span></span></span>, <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>σ</mi></mrow><annotation encoding="application/x-tex">\sigma</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">σ</span></span></span></span>, <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>γ</mi></mrow><annotation encoding="application/x-tex">\gamma</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05556em;">γ</span></span></span></span>, <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>β</mi></mrow><annotation encoding="application/x-tex">\beta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05278em;">β</span></span></span></span>参数从哪来？</strong></h3>
+<p>  <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>μ</mi></mrow><annotation encoding="application/x-tex">\mu</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">μ</span></span></span></span>, <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>σ</mi></mrow><annotation encoding="application/x-tex">\sigma</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">σ</span></span></span></span>代表batch的均值和方差，实际上这里代表的是训练时积累的均值和方差；<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>γ</mi></mrow><annotation encoding="application/x-tex">\gamma</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05556em;">γ</span></span></span></span>, <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>β</mi></mrow><annotation encoding="application/x-tex">\beta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05278em;">β</span></span></span></span>属于训练参数，在训练过程中随着模型参数迭代自动学到。</p>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#1-%E8%AE%BA%E6%96%87%E7%AE%80%E4%BB%8B"><strong>1、论文简介</strong></a>
+<ul>
+<li><a href="#%E6%A8%A1%E5%9E%8B%E4%BB%8B%E7%BB%8D"><strong>模型介绍：</strong></a></li>
+<li><a href="#%E6%A8%A1%E5%9E%8B%E7%BB%86%E8%8A%82"><strong>模型细节：</strong></a></li>
+<li><a href="#%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%8F%82%E6%95%B0%E9%87%8D%E6%9E%84"><strong>模型的参数重构：</strong></a></li>
+<li><a href="#%E6%80%BB%E7%BB%93"><strong>总结：</strong></a></li>
+</ul>
+</li>
+<li><a href="#2-qa%E7%8E%AF%E8%8A%82"><strong>2、QA环节</strong></a>
+<ul>
+<li><a href="#q1-%E7%9B%B8%E6%AF%94%E5%8E%9F%E5%A7%8Bvggrepvgg%E7%9A%84%E6%94%B9%E8%BF%9B%E7%82%B9%E5%9C%A8%E5%93%AA"><strong>Q1: 相比原始VGG，RepVGG的改进点在哪？</strong></a></li>
+<li><a href="#q2-repvgg%E5%9C%A8%E8%AE%AD%E7%BB%83%E6%97%B6%E5%92%8C%E6%8E%A8%E7%90%86%E6%97%B6%E7%9A%84%E7%BD%91%E7%BB%9C%E7%BB%93%E6%9E%84%E5%92%8C%E6%9C%80%E5%90%8E%E8%BE%93%E5%87%BA%E7%BB%93%E6%9E%9C%E6%98%AF%E5%90%A6%E4%B8%80%E8%87%B4"><strong>Q2: RepVGG在训练时和推理时的网络结构和最后输出结果是否一致？</strong></a></li>
+<li><a href="#q3-%E5%8D%95%E8%B7%AF%E5%BE%84%E5%92%8C%E5%A4%9A%E5%88%86%E6%94%AF%E7%BD%91%E7%BB%9C%E7%BB%93%E6%9E%84%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9%E6%98%AF%E4%BB%80%E4%B9%88"><strong>Q3: 单路径和多分支网络结构的优缺点是什么？</strong></a></li>
+<li><a href="#q4-%E4%B8%BA%E4%BB%80%E4%B9%88%E9%87%87%E7%94%A8%E5%A4%A7%E5%B0%8F%E4%B8%BA3x3%E7%9A%84%E5%8D%B7%E7%A7%AF%E6%A0%B8%E8%80%8C%E4%B8%8D%E6%98%AF%E5%85%B6%E4%BB%96%E5%A4%A7%E5%B0%8F%E7%9A%84"><strong>Q4: 为什么采用大小为3x3的卷积核，而不是其他大小的？</strong></a></li>
+<li><a href="#q5-%E4%BB%80%E4%B9%88%E6%98%AF%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%8F%82%E6%95%B0%E9%87%8D%E6%9E%84"><strong>Q5: 什么是模型的“参数重构”？</strong></a></li>
+<li><a href="#q6-%E6%AE%8B%E5%B7%AE%E8%BF%9E%E6%8E%A5%E7%9A%84%E7%9B%AE%E7%9A%84"><strong>Q6: 残差连接的目的？</strong></a></li>
+<li><a href="#q7-%E4%B8%BA%E4%BB%80%E4%B9%88repvgg-block%E7%AC%AC%E4%B8%80%E5%B1%82%E6%B2%A1%E6%9C%89identity%E5%88%86%E6%94%AF"><strong>Q7: 为什么RepVGG block第一层没有identity分支？</strong></a></li>
+<li><a href="#q8-%E4%B8%BA%E4%BB%80%E4%B9%88identity%E5%8F%AF%E4%BB%A5%E7%9C%8B%E6%88%903x3%E5%8D%B7%E7%A7%AF"><strong>Q8: 为什么identity可以看成3x3卷积？</strong></a></li>
+<li><a href="#q9-bn%E8%9E%8D%E5%90%88%E6%97%B6%E7%9A%84mu-sigma-gamma-beta%E5%8F%82%E6%95%B0%E4%BB%8E%E5%93%AA%E6%9D%A5"><strong>Q9: BN融合时的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>μ</mi></mrow><annotation encoding="application/x-tex">\mu</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">μ</span></span></span></span>, <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>σ</mi></mrow><annotation encoding="application/x-tex">\sigma</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">σ</span></span></span></span>, <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>γ</mi></mrow><annotation encoding="application/x-tex">\gamma</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05556em;">γ</span></span></span></span>, <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>β</mi></mrow><annotation encoding="application/x-tex">\beta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05278em;">β</span></span></span></span>参数从哪来？</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://pinganph.github.io/n9BUrENbN/">
+              <h3 class="post-title">
+                【论文分享】第2期：“PolarMask: Single Shot Instance Segmentation with Polar Representation”
+              </h3>
+            </a>
+          </div>
+        
+
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: '4fe97f4e5b8a6fdb5ea1',
+    clientSecret: '830eadccb7e98c7ac4dafa013348b26cb3405e11',
+    repo: 'pinganph.github.io',
+    owner: 'PingAnPH',
+    admin: ['PingAnPH'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+          
+
+          
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://pinganph.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

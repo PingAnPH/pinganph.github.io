@@ -1,0 +1,267 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>【论文分享】第7期：“A Label Dependence-aware Sequence Generation Model for Multi-level Implicit Discourse Relation Recognition” | 平安普惠创新管理部</title>
+<link rel="shortcut icon" href="https://pinganph.github.io/favicon.ico?v=1654160904549">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://pinganph.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="【论文分享】第7期：“A Label Dependence-aware Sequence Generation Model for Multi-level Implicit Discourse Relation Recognition” | 平安普惠创新管理部 - Atom Feed" href="https://pinganph.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="
+
+table {
+    margin: auto;
+}
+
+
+
+
+日期
+主讲人
+论文题目
+
+
+
+
+2022.04.28
+胡超文
+A Label Dependence-aware Sequence Generation Model for ..." />
+    <meta name="keywords" content="Paper Shared,NLP" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://pinganph.github.io">
+  <img class="avatar" src="https://pinganph.github.io/images/avatar.png?v=1654160904549" alt="">
+  </a>
+  <h1 class="site-title">
+    平安普惠创新管理部
+  </h1>
+  <p class="site-description">
+    本站主要用于发布平安普惠创新管理部的分享博客
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          文章
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              【论文分享】第7期：“A Label Dependence-aware Sequence Generation Model for Multi-level Implicit Discourse Relation Recognition”
+            </h2>
+            <div class="post-info">
+              <span>
+                2022-04-29
+              </span>
+              <span>
+                2 min read
+              </span>
+              
+                <a href="https://pinganph.github.io/SNdINpDC0/" class="post-tag">
+                  # Paper Shared
+                </a>
+              
+                <a href="https://pinganph.github.io/i7D5rAErE/" class="post-tag">
+                  # NLP
+                </a>
+              
+            </div>
+            
+              <img class="post-feature-image" src="https://raw.githubusercontent.com/PingAnPH/Picbed_picgo/main/img/微信图片_20220429135241.jpg" alt="">
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <hr>
+<style>
+table {
+    margin: auto;
+}
+</style>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><div style="width: 60pt">日期</div></th>
+<th style="text-align:center"><div style="width:40pt">主讲人</div></th>
+<th style="text-align:center"><div style="width: 460pt">论文题目</div></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">2022.04.28</td>
+<td style="text-align:center">胡超文</td>
+<td style="text-align:center"><a href="https://arxiv.org/pdf/2112.11740.pdf">A Label Dependence-aware Sequence Generation Model for Multi-level Implicit Discourse Relation Recognition</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="1-论文简介"><strong>1、论文简介</strong></h2>
+<p>  本篇论文提出了一种标签依赖性的序列生成模型用于多级隐式篇章关系识别任务。之前大多数方法都是对每级任务去单独的训练一个模型来识别，本文利用多级标签之间的依赖性只需训练一个模型就可以生成多级篇章关系。论文主要包含三个部分：label attentive Encoder，label sequence Decoder 和 Auxiliary Decoder三部分。label attentive Encoder利用gcn学到的label向量和句子向量建模每个词的注意力权重；label sequence Decoder通过GRU网络生成每一级的篇章关系，前一级的篇章关系会参与下一级篇章关系的生成，生成顺序从第一级到连接词；Auxiliary Decoder则从连接词到第一级的方向进行篇章关系的生成，通过互学习的方式联立label sequence Decoder。需要注意的是Auxiliary Decoder只在训练阶段有，推理阶段就不需要了。截止目前，该模型实现了多级隐式篇章关系识别任务的最好效果。</p>
+<h2 id="2-qa环节"><strong>2、QA环节</strong></h2>
+<h3 id="q1-什么是多级隐式篇章关系识别任务"><strong>Q1: 什么是多级隐式篇章关系识别任务？</strong></h3>
+<p><img src="https://raw.githubusercontent.com/PingAnPH/Picbed_picgo/main/img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20220429135311.jpg" alt="" loading="lazy"><br>
+  如图所示，arg1和arg2缺乏显式的连接词“因为”，隐式篇章关系识别任务则是基于arg1和arg2识别出上述四级篇章关系。</p>
+<h3 id="q2-如何理解标签之间的依赖性"><strong>Q2: 如何理解标签之间的依赖性?</strong></h3>
+<p>  这个依赖性在于该任务的label前面一级的篇章关系是上一级篇章关系的进一步细化，具有层次性。</p>
+<h3 id="q3分类任务转成序列生成任务有啥好处"><strong>Q3:分类任务转成序列生成任务有啥好处?</strong></h3>
+<p>  基于多级隐式篇章关系识别任务的特性，这种生成方式具有天然性的优势，比较契合多级标签生成。</p>
+<h3 id="q4模型中的gcn网络的作用"><strong>Q4:模型中的gcn网络的作用?</strong></h3>
+<p>  gcn网络在于利用label之间的层次关系，来学习更好的label向量。</p>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#1-%E8%AE%BA%E6%96%87%E7%AE%80%E4%BB%8B"><strong>1、论文简介</strong></a></li>
+<li><a href="#2-qa%E7%8E%AF%E8%8A%82"><strong>2、QA环节</strong></a>
+<ul>
+<li><a href="#q1-%E4%BB%80%E4%B9%88%E6%98%AF%E5%A4%9A%E7%BA%A7%E9%9A%90%E5%BC%8F%E7%AF%87%E7%AB%A0%E5%85%B3%E7%B3%BB%E8%AF%86%E5%88%AB%E4%BB%BB%E5%8A%A1"><strong>Q1: 什么是多级隐式篇章关系识别任务？</strong></a></li>
+<li><a href="#q2-%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E6%A0%87%E7%AD%BE%E4%B9%8B%E9%97%B4%E7%9A%84%E4%BE%9D%E8%B5%96%E6%80%A7"><strong>Q2: 如何理解标签之间的依赖性?</strong></a></li>
+<li><a href="#q3%E5%88%86%E7%B1%BB%E4%BB%BB%E5%8A%A1%E8%BD%AC%E6%88%90%E5%BA%8F%E5%88%97%E7%94%9F%E6%88%90%E4%BB%BB%E5%8A%A1%E6%9C%89%E5%95%A5%E5%A5%BD%E5%A4%84"><strong>Q3:分类任务转成序列生成任务有啥好处?</strong></a></li>
+<li><a href="#q4%E6%A8%A1%E5%9E%8B%E4%B8%AD%E7%9A%84gcn%E7%BD%91%E7%BB%9C%E7%9A%84%E4%BD%9C%E7%94%A8"><strong>Q4:模型中的gcn网络的作用?</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://pinganph.github.io/0Qj6L79jh/">
+              <h3 class="post-title">
+                【论文分享】第6期：“OPT: Omni-Perception Pre-Trainer for Cross-Modal Understanding and Generation”
+              </h3>
+            </a>
+          </div>
+        
+
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: '4fe97f4e5b8a6fdb5ea1',
+    clientSecret: '830eadccb7e98c7ac4dafa013348b26cb3405e11',
+    repo: 'pinganph.github.io',
+    owner: 'PingAnPH',
+    admin: ['PingAnPH'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+          
+
+          
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://pinganph.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

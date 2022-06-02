@@ -1,0 +1,416 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>【论文分享】第5期：“Single Headed Attention RNN: Stop ThinkingWith Your Head” | 平安普惠创新管理部</title>
+<link rel="shortcut icon" href="https://pinganph.github.io/favicon.ico?v=1654160904549">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://pinganph.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="【论文分享】第5期：“Single Headed Attention RNN: Stop ThinkingWith Your Head” | 平安普惠创新管理部 - Atom Feed" href="https://pinganph.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="
+
+table {
+    margin: auto;
+}
+
+
+
+
+日期
+主讲人
+论文题目
+
+
+
+
+2021.12.13
+苏煜竣
+Single Headed Attention RNN: Stop ThinkingWith Your Hea..." />
+    <meta name="keywords" content="Paper Shared,NLP" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://pinganph.github.io">
+  <img class="avatar" src="https://pinganph.github.io/images/avatar.png?v=1654160904549" alt="">
+  </a>
+  <h1 class="site-title">
+    平安普惠创新管理部
+  </h1>
+  <p class="site-description">
+    本站主要用于发布平安普惠创新管理部的分享博客
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          文章
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              【论文分享】第5期：“Single Headed Attention RNN: Stop ThinkingWith Your Head”
+            </h2>
+            <div class="post-info">
+              <span>
+                2021-12-15
+              </span>
+              <span>
+                4 min read
+              </span>
+              
+                <a href="https://pinganph.github.io/SNdINpDC0/" class="post-tag">
+                  # Paper Shared
+                </a>
+              
+                <a href="https://pinganph.github.io/i7D5rAErE/" class="post-tag">
+                  # NLP
+                </a>
+              
+            </div>
+            
+              <img class="post-feature-image" src="https://raw.githubusercontent.com/PingAnPH/Picbed_picgo/main/img/20211215102851.png" alt="">
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <hr>
+<style>
+table {
+    margin: auto;
+}
+</style>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><div style="width: 60pt">日期</div></th>
+<th style="text-align:center"><div style="width:40pt">主讲人</div></th>
+<th style="text-align:center"><div style="width: 460pt">论文题目</div></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">2021.12.13</td>
+<td style="text-align:center">苏煜竣</td>
+<td style="text-align:center"><a href="https://arxiv.org/pdf/1911.11423.pdf">Single Headed Attention RNN: Stop ThinkingWith Your Head</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="1-论文简介"><strong>1、论文简介</strong></h2>
+<h3 id="模型介绍"><strong>模型介绍：</strong></h3>
+<p>  想象一下没有transformer的世界，如果没有了transformer,nlp的发展是否会停滞不前呢？抑或是开启了全新的科技树走上了另外一条大相径庭的发展路径呢?本文的作者尝试给出了自己的答案。</p>
+<h3 id="模型结构对比"><strong>模型结构对比：</strong></h3>
+<p>  本质上，一个block是一个layer，带attention的是两个layer。<br>
+<img src="https://raw.githubusercontent.com/PingAnPH/Picbed_picgo/main/img/sharnn-p5.png" alt="" loading="lazy"></p>
+<center>图1.1 SHARNN网络结构</center>
+<h3 id="模型效果"><strong>模型效果：</strong></h3>
+<ol>
+<li>单机单卡即可完成训练.</li>
+<li>比transformer更快的训练、推理速度.</li>
+</ol>
+<h3 id="模型有什么值得我们尝试的吗"><strong>模型有什么值得我们尝试的吗：</strong></h3>
+<ol>
+<li>BoomLayer可以尝试代替FC层.</li>
+<li>Attetion中的Vs参数静态化可以值得尝试.</li>
+<li>把大模型蒸馏到这个模型当中,加速推理速度.</li>
+</ol>
+<h2 id="2-qa环节"><strong>2、QA环节</strong></h2>
+<h3 id="q1-sharnn与transormer的区别"><strong>Q1: SHARNN与Transormer的区别?</strong></h3>
+<ol>
+<li>使用了RNN结构一定程度替代了位置编码,同时rnn也承担了一部分的信息编码。</li>
+<li>只需要在一层当中使用Attention,并且Attention是单头的。</li>
+<li>在Attention中新增了门结构,使得训练的过程中可以更好的保护已学内容的信息。</li>
+</ol>
+<h3 id="q2-sharnn快在哪里"><strong>Q2: SHARNN快在哪里?</strong></h3>
+<ol>
+<li>Gelu激活函数</li>
+<li>只有一个Block采用了Attention</li>
+<li>Lamb优化器</li>
+<li>Attention KQV的门结构</li>
+<li>使用FP16</li>
+</ol>
+<h3 id="q3-boomlayer是什么"><strong>Q3: Boomlayer是什么?</strong></h3>
+<figure data-type="image" tabindex="1"><img src="https://raw.githubusercontent.com/PingAnPH/Picbed_picgo/main/img/sharnn-p8.jpg" alt="" loading="lazy"></figure>
+<center>图2.1 Boomlayer结构</center>
+<h3 id="q4-为什么不是每一层block都使用了attention机制"><strong>Q4: 为什么不是每一层Block都使用了Attention机制?</strong></h3>
+<p>  作者对比了所有层都使用Attention的情况，当前模型可以比所有层都使用Attetion训练速度快一倍，精度却几乎没有降低。</p>
+<h2 id="附lamb优化器实现"><strong>附：Lamb优化器实现</strong></h2>
+<pre><code class="language-python">class Lamb(Optimizer):
+    # Reference code: https://github.com/cybertronai/pytorch-lamb
+
+    def __init__(
+        self,
+        params,
+        lr: float = 1e-3,
+        betas = (0.9, 0.999),
+        eps: float = 1e-6,
+        weight_decay: float = 0,
+        clamp_value: float = 10,
+        adam: bool = False,
+        debias: bool = False,
+    ):
+        if lr &lt;= 0.0:
+            raise ValueError('Invalid learning rate: {}'.format(lr))
+        if eps &lt; 0.0:
+            raise ValueError('Invalid epsilon value: {}'.format(eps))
+        if not 0.0 &lt;= betas[0] &lt; 1.0:
+            raise ValueError(
+                'Invalid beta parameter at index 0: {}'.format(betas[0])
+            )
+        if not 0.0 &lt;= betas[1] &lt; 1.0:
+            raise ValueError(
+                'Invalid beta parameter at index 1: {}'.format(betas[1])
+            )
+        if weight_decay &lt; 0:
+            raise ValueError(
+                'Invalid weight_decay value: {}'.format(weight_decay)
+            )
+        if clamp_value &lt; 0.0:
+            raise ValueError('Invalid clamp value: {}'.format(clamp_value))
+
+        defaults = dict(lr=lr, betas=betas, eps=eps, weight_decay=weight_decay)
+        self.clamp_value = clamp_value
+        self.adam = adam
+        self.debias = debias
+
+        super(Lamb, self).__init__(params, defaults)
+
+    def step(self, closure = None):
+        loss = None
+        if closure is not None:
+            loss = closure()
+
+        for group in self.param_groups:
+            for p in group['params']:
+                if p.grad is None:
+                    continue
+                grad = p.grad.data
+                if grad.is_sparse:
+                    msg = (
+                        'Lamb does not support sparse gradients, '
+                        'please consider SparseAdam instead'
+                    )
+                    raise RuntimeError(msg)
+
+                state = self.state[p]
+
+                # State initialization
+                if len(state) == 0:
+                    state['step'] = 0
+                    # Exponential moving average of gradient values
+                    state['exp_avg'] = torch.zeros_like(
+                        p, memory_format=torch.preserve_format
+                    )
+                    # Exponential moving average of squared gradient values
+                    state['exp_avg_sq'] = torch.zeros_like(
+                        p, memory_format=torch.preserve_format
+                    )
+
+                exp_avg, exp_avg_sq = state['exp_avg'], state['exp_avg_sq']
+                beta1, beta2 = group['betas']
+
+                state['step'] += 1
+
+                # Decay the first and second moment running average coefficient
+                # m_t
+                exp_avg.mul_(beta1).add_(grad, alpha=1 - beta1)
+                # v_t
+                exp_avg_sq.mul_(beta2).addcmul_(grad, grad, value=1 - beta2)
+
+                # Paper v3 does not use debiasing.
+                if self.debias:
+                    bias_correction = math.sqrt(1 - beta2 ** state['step'])
+                    bias_correction /= 1 - beta1 ** state['step']
+                else:
+                    bias_correction = 1
+
+                # Apply bias to lr to avoid broadcast.
+                step_size = group['lr'] * bias_correction
+
+                weight_norm = torch.norm(p.data).clamp(0, self.clamp_value)
+
+                adam_step = exp_avg / exp_avg_sq.sqrt().add(group['eps'])
+                if group['weight_decay'] != 0:
+                    adam_step.add_(p.data, alpha=group['weight_decay'])
+
+                adam_norm = torch.norm(adam_step)
+                if weight_norm == 0 or adam_norm == 0:
+                    trust_ratio = 1
+                else:
+                    trust_ratio = weight_norm / adam_norm
+                state['weight_norm'] = weight_norm
+                state['adam_norm'] = adam_norm
+                state['trust_ratio'] = trust_ratio
+                if self.adam:
+                    trust_ratio = 1
+
+                p.data.add_(adam_step, alpha=-step_size * trust_ratio)
+
+        return loss
+
+</code></pre>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#1-%E8%AE%BA%E6%96%87%E7%AE%80%E4%BB%8B"><strong>1、论文简介</strong></a>
+<ul>
+<li><a href="#%E6%A8%A1%E5%9E%8B%E4%BB%8B%E7%BB%8D"><strong>模型介绍：</strong></a></li>
+<li><a href="#%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84%E5%AF%B9%E6%AF%94"><strong>模型结构对比：</strong></a></li>
+<li><a href="#%E6%A8%A1%E5%9E%8B%E6%95%88%E6%9E%9C"><strong>模型效果：</strong></a></li>
+<li><a href="#%E6%A8%A1%E5%9E%8B%E6%9C%89%E4%BB%80%E4%B9%88%E5%80%BC%E5%BE%97%E6%88%91%E4%BB%AC%E5%B0%9D%E8%AF%95%E7%9A%84%E5%90%97"><strong>模型有什么值得我们尝试的吗：</strong></a></li>
+</ul>
+</li>
+<li><a href="#2-qa%E7%8E%AF%E8%8A%82"><strong>2、QA环节</strong></a>
+<ul>
+<li><a href="#q1-sharnn%E4%B8%8Etransormer%E7%9A%84%E5%8C%BA%E5%88%AB"><strong>Q1: SHARNN与Transormer的区别?</strong></a></li>
+<li><a href="#q2-sharnn%E5%BF%AB%E5%9C%A8%E5%93%AA%E9%87%8C"><strong>Q2: SHARNN快在哪里?</strong></a></li>
+<li><a href="#q3-boomlayer%E6%98%AF%E4%BB%80%E4%B9%88"><strong>Q3: Boomlayer是什么?</strong></a></li>
+<li><a href="#q4-%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E6%98%AF%E6%AF%8F%E4%B8%80%E5%B1%82block%E9%83%BD%E4%BD%BF%E7%94%A8%E4%BA%86attention%E6%9C%BA%E5%88%B6"><strong>Q4: 为什么不是每一层Block都使用了Attention机制?</strong></a></li>
+</ul>
+</li>
+<li><a href="#%E9%99%84lamb%E4%BC%98%E5%8C%96%E5%99%A8%E5%AE%9E%E7%8E%B0"><strong>附：Lamb优化器实现</strong></a></li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://pinganph.github.io/p0aZ-0Zxj/">
+              <h3 class="post-title">
+                【技术分享】第1期--语音：Wav2Vec 
+              </h3>
+            </a>
+          </div>
+        
+
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: '4fe97f4e5b8a6fdb5ea1',
+    clientSecret: '830eadccb7e98c7ac4dafa013348b26cb3405e11',
+    repo: 'pinganph.github.io',
+    owner: 'PingAnPH',
+    admin: ['PingAnPH'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+          
+
+          
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://pinganph.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>
